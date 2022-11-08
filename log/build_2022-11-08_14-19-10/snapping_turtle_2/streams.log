@@ -1,0 +1,27 @@
+[0.929s] Invoking command in '/home/patrick/ros2_ws/src/snapping_turtle_2': PYTHONPATH=/home/patrick/ros2_ws/install/snapping_turtle_2/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/snapping_turtle_2 build --build-base /home/patrick/ros2_ws/build/snapping_turtle_2/build install --prefix /home/patrick/ros2_ws/install/snapping_turtle_2 --record /home/patrick/ros2_ws/build/snapping_turtle_2/install.log --single-version-externally-managed
+[1.121s] running egg_info
+[1.122s] writing ../../build/snapping_turtle_2/snapping_turtle_2.egg-info/PKG-INFO
+[1.122s] writing dependency_links to ../../build/snapping_turtle_2/snapping_turtle_2.egg-info/dependency_links.txt
+[1.122s] writing entry points to ../../build/snapping_turtle_2/snapping_turtle_2.egg-info/entry_points.txt
+[1.122s] writing requirements to ../../build/snapping_turtle_2/snapping_turtle_2.egg-info/requires.txt
+[1.122s] writing top-level names to ../../build/snapping_turtle_2/snapping_turtle_2.egg-info/top_level.txt
+[1.153s] reading manifest file '../../build/snapping_turtle_2/snapping_turtle_2.egg-info/SOURCES.txt'
+[1.154s] writing manifest file '../../build/snapping_turtle_2/snapping_turtle_2.egg-info/SOURCES.txt'
+[1.154s] running build
+[1.154s] running build_py
+[1.154s] copying snapping_turtle_2/snap_snap.py -> /home/patrick/ros2_ws/build/snapping_turtle_2/build/lib/snapping_turtle_2
+[1.154s] copying snapping_turtle_2/chomp_chomp.py -> /home/patrick/ros2_ws/build/snapping_turtle_2/build/lib/snapping_turtle_2
+[1.154s] running install
+[1.155s] running install_lib
+[1.156s] copying /home/patrick/ros2_ws/build/snapping_turtle_2/build/lib/snapping_turtle_2/snap_snap.py -> /home/patrick/ros2_ws/install/snapping_turtle_2/lib/python3.8/site-packages/snapping_turtle_2
+[1.156s] copying /home/patrick/ros2_ws/build/snapping_turtle_2/build/lib/snapping_turtle_2/chomp_chomp.py -> /home/patrick/ros2_ws/install/snapping_turtle_2/lib/python3.8/site-packages/snapping_turtle_2
+[1.156s] byte-compiling /home/patrick/ros2_ws/install/snapping_turtle_2/lib/python3.8/site-packages/snapping_turtle_2/snap_snap.py to snap_snap.cpython-38.pyc
+[1.158s] byte-compiling /home/patrick/ros2_ws/install/snapping_turtle_2/lib/python3.8/site-packages/snapping_turtle_2/chomp_chomp.py to chomp_chomp.cpython-38.pyc
+[1.158s] running install_data
+[1.159s] running install_egg_info
+[1.160s] removing '/home/patrick/ros2_ws/install/snapping_turtle_2/lib/python3.8/site-packages/snapping_turtle_2-0.0.0-py3.8.egg-info' (and everything under it)
+[1.160s] Copying ../../build/snapping_turtle_2/snapping_turtle_2.egg-info to /home/patrick/ros2_ws/install/snapping_turtle_2/lib/python3.8/site-packages/snapping_turtle_2-0.0.0-py3.8.egg-info
+[1.161s] running install_scripts
+[1.176s] Installing snap_snap script to /home/patrick/ros2_ws/install/snapping_turtle_2/lib/snapping_turtle_2
+[1.176s] writing list of installed files to '/home/patrick/ros2_ws/build/snapping_turtle_2/install.log'
+[1.223s] Invoked command in '/home/patrick/ros2_ws/src/snapping_turtle_2' returned '0': PYTHONPATH=/home/patrick/ros2_ws/install/snapping_turtle_2/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/snapping_turtle_2 build --build-base /home/patrick/ros2_ws/build/snapping_turtle_2/build install --prefix /home/patrick/ros2_ws/install/snapping_turtle_2 --record /home/patrick/ros2_ws/build/snapping_turtle_2/install.log --single-version-externally-managed

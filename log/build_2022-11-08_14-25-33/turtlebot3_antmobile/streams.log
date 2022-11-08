@@ -1,0 +1,20 @@
+[0.921s] Invoking command in '/home/patrick/ros2_ws/src/turtlebot3_antmobile': PYTHONPATH=/home/patrick/ros2_ws/install/turtlebot3_antmobile/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/turtlebot3_antmobile build --build-base /home/patrick/ros2_ws/build/turtlebot3_antmobile/build install --prefix /home/patrick/ros2_ws/install/turtlebot3_antmobile --record /home/patrick/ros2_ws/build/turtlebot3_antmobile/install.log --single-version-externally-managed
+[1.115s] running egg_info
+[1.115s] writing ../../build/turtlebot3_antmobile/turtlebot3_antmobile.egg-info/PKG-INFO
+[1.115s] writing dependency_links to ../../build/turtlebot3_antmobile/turtlebot3_antmobile.egg-info/dependency_links.txt
+[1.115s] writing entry points to ../../build/turtlebot3_antmobile/turtlebot3_antmobile.egg-info/entry_points.txt
+[1.116s] writing requirements to ../../build/turtlebot3_antmobile/turtlebot3_antmobile.egg-info/requires.txt
+[1.116s] writing top-level names to ../../build/turtlebot3_antmobile/turtlebot3_antmobile.egg-info/top_level.txt
+[1.146s] reading manifest file '../../build/turtlebot3_antmobile/turtlebot3_antmobile.egg-info/SOURCES.txt'
+[1.147s] writing manifest file '../../build/turtlebot3_antmobile/turtlebot3_antmobile.egg-info/SOURCES.txt'
+[1.147s] running build
+[1.147s] running build_py
+[1.147s] running install
+[1.148s] running install_lib
+[1.149s] running install_data
+[1.150s] running install_egg_info
+[1.152s] removing '/home/patrick/ros2_ws/install/turtlebot3_antmobile/lib/python3.8/site-packages/turtlebot3_antmobile-0.0.0-py3.8.egg-info' (and everything under it)
+[1.152s] Copying ../../build/turtlebot3_antmobile/turtlebot3_antmobile.egg-info to /home/patrick/ros2_ws/install/turtlebot3_antmobile/lib/python3.8/site-packages/turtlebot3_antmobile-0.0.0-py3.8.egg-info
+[1.152s] running install_scripts
+[1.167s] writing list of installed files to '/home/patrick/ros2_ws/build/turtlebot3_antmobile/install.log'
+[1.195s] Invoked command in '/home/patrick/ros2_ws/src/turtlebot3_antmobile' returned '0': PYTHONPATH=/home/patrick/ros2_ws/install/turtlebot3_antmobile/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/turtlebot3_antmobile build --build-base /home/patrick/ros2_ws/build/turtlebot3_antmobile/build install --prefix /home/patrick/ros2_ws/install/turtlebot3_antmobile --record /home/patrick/ros2_ws/build/turtlebot3_antmobile/install.log --single-version-externally-managed

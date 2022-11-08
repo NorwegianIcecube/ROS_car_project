@@ -1,0 +1,20 @@
+[0.970s] Invoking command in '/home/patrick/ros2_ws/src/snapping_turtle': PYTHONPATH=/home/patrick/ros2_ws/install/snapping_turtle/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/snapping_turtle build --build-base /home/patrick/ros2_ws/build/snapping_turtle/build install --prefix /home/patrick/ros2_ws/install/snapping_turtle --record /home/patrick/ros2_ws/build/snapping_turtle/install.log --single-version-externally-managed
+[1.170s] running egg_info
+[1.170s] writing ../../build/snapping_turtle/snapping_turtle.egg-info/PKG-INFO
+[1.170s] writing dependency_links to ../../build/snapping_turtle/snapping_turtle.egg-info/dependency_links.txt
+[1.170s] writing entry points to ../../build/snapping_turtle/snapping_turtle.egg-info/entry_points.txt
+[1.171s] writing requirements to ../../build/snapping_turtle/snapping_turtle.egg-info/requires.txt
+[1.171s] writing top-level names to ../../build/snapping_turtle/snapping_turtle.egg-info/top_level.txt
+[1.201s] reading manifest file '../../build/snapping_turtle/snapping_turtle.egg-info/SOURCES.txt'
+[1.202s] writing manifest file '../../build/snapping_turtle/snapping_turtle.egg-info/SOURCES.txt'
+[1.202s] running build
+[1.202s] running build_py
+[1.202s] running install
+[1.203s] running install_lib
+[1.204s] running install_data
+[1.205s] running install_egg_info
+[1.206s] removing '/home/patrick/ros2_ws/install/snapping_turtle/lib/python3.8/site-packages/snapping_turtle-0.0.0-py3.8.egg-info' (and everything under it)
+[1.206s] Copying ../../build/snapping_turtle/snapping_turtle.egg-info to /home/patrick/ros2_ws/install/snapping_turtle/lib/python3.8/site-packages/snapping_turtle-0.0.0-py3.8.egg-info
+[1.207s] running install_scripts
+[1.222s] writing list of installed files to '/home/patrick/ros2_ws/build/snapping_turtle/install.log'
+[1.250s] Invoked command in '/home/patrick/ros2_ws/src/snapping_turtle' returned '0': PYTHONPATH=/home/patrick/ros2_ws/install/snapping_turtle/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/snapping_turtle build --build-base /home/patrick/ros2_ws/build/snapping_turtle/build install --prefix /home/patrick/ros2_ws/install/snapping_turtle --record /home/patrick/ros2_ws/build/snapping_turtle/install.log --single-version-externally-managed

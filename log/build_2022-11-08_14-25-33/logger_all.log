@@ -1,0 +1,229 @@
+[0.151s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[0.151s] DEBUG:colcon:Parsed command line arguments: Namespace(allow_overriding=[], ament_cmake_args=None, base_paths=['.'], build_base='build', catkin_cmake_args=None, catkin_skip_building_tests=False, cmake_args=None, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, cmake_target=None, cmake_target_skip_unavailable=False, continue_on_error=False, event_handlers=None, executor='parallel', ignore_user_meta=False, install_base='install', log_base=None, log_level=None, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7f44bc4bd7c0>>, merge_install=False, metas=['./colcon.meta'], packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_end=None, packages_ignore=None, packages_ignore_regex=None, packages_select=None, packages_select_build_failed=False, packages_select_by_dep=None, packages_select_regex=None, packages_select_test_failures=False, packages_skip=None, packages_skip_build_finished=False, packages_skip_by_dep=None, packages_skip_regex=None, packages_skip_test_passed=False, packages_skip_up_to=None, packages_start=None, packages_up_to=None, packages_up_to_regex=None, parallel_workers=8, paths=None, symlink_install=False, test_result_base=None, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7f44bc4bd7c0>, verb_name='build', verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0x7f44bc4bdd30>)
+[0.176s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.177s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.177s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.177s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.177s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.177s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.177s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/patrick/ros2_ws'
+[0.177s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.177s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.177s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.177s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.177s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.177s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.177s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.177s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.177s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.189s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.189s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[0.189s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[0.189s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[0.189s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[0.189s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[0.189s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[0.189s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[0.189s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[0.189s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[0.189s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[0.189s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[0.189s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[0.189s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[0.189s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[0.189s] Level 1:colcon.colcon_core.package_identification:_identify(src/snapping_turtle) by extensions ['ignore', 'ignore_ament_install']
+[0.189s] Level 1:colcon.colcon_core.package_identification:_identify(src/snapping_turtle) by extension 'ignore'
+[0.189s] Level 1:colcon.colcon_core.package_identification:_identify(src/snapping_turtle) by extension 'ignore_ament_install'
+[0.190s] Level 1:colcon.colcon_core.package_identification:_identify(src/snapping_turtle) by extensions ['colcon_pkg']
+[0.190s] Level 1:colcon.colcon_core.package_identification:_identify(src/snapping_turtle) by extension 'colcon_pkg'
+[0.190s] Level 1:colcon.colcon_core.package_identification:_identify(src/snapping_turtle) by extensions ['colcon_meta']
+[0.190s] Level 1:colcon.colcon_core.package_identification:_identify(src/snapping_turtle) by extension 'colcon_meta'
+[0.190s] Level 1:colcon.colcon_core.package_identification:_identify(src/snapping_turtle) by extensions ['ros']
+[0.190s] Level 1:colcon.colcon_core.package_identification:_identify(src/snapping_turtle) by extension 'ros'
+[0.192s] DEBUG:colcon.colcon_core.package_identification:Package 'src/snapping_turtle' with type 'ros.ament_python' and name 'snapping_turtle'
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(src/snapping_turtle_2) by extensions ['ignore', 'ignore_ament_install']
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(src/snapping_turtle_2) by extension 'ignore'
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(src/snapping_turtle_2) by extension 'ignore_ament_install'
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(src/snapping_turtle_2) by extensions ['colcon_pkg']
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(src/snapping_turtle_2) by extension 'colcon_pkg'
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(src/snapping_turtle_2) by extensions ['colcon_meta']
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(src/snapping_turtle_2) by extension 'colcon_meta'
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(src/snapping_turtle_2) by extensions ['ros']
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(src/snapping_turtle_2) by extension 'ros'
+[0.193s] DEBUG:colcon.colcon_core.package_identification:Package 'src/snapping_turtle_2' with type 'ros.ament_python' and name 'snapping_turtle_2'
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(src/turtlebot3_antmobile) by extensions ['ignore', 'ignore_ament_install']
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(src/turtlebot3_antmobile) by extension 'ignore'
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(src/turtlebot3_antmobile) by extension 'ignore_ament_install'
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(src/turtlebot3_antmobile) by extensions ['colcon_pkg']
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(src/turtlebot3_antmobile) by extension 'colcon_pkg'
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(src/turtlebot3_antmobile) by extensions ['colcon_meta']
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(src/turtlebot3_antmobile) by extension 'colcon_meta'
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(src/turtlebot3_antmobile) by extensions ['ros']
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(src/turtlebot3_antmobile) by extension 'ros'
+[0.194s] DEBUG:colcon.colcon_core.package_identification:Package 'src/turtlebot3_antmobile' with type 'ros.ament_python' and name 'turtlebot3_antmobile'
+[0.194s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.194s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.194s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.194s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.194s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.223s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.223s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.226s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 3 installed packages in /home/patrick/ros2_ws/install
+[0.226s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 3 installed packages in /home/patrick/turtlebot3_ws/install
+[0.227s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 0 installed packages in /home/patrick/colcon_ws/install
+[0.229s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 332 installed packages in /opt/ros/foxy
+[0.231s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.300s] Level 5:colcon.colcon_core.verb:set package 'snapping_turtle' build argument 'cmake_args' from command line to 'None'
+[0.300s] Level 5:colcon.colcon_core.verb:set package 'snapping_turtle' build argument 'cmake_target' from command line to 'None'
+[0.300s] Level 5:colcon.colcon_core.verb:set package 'snapping_turtle' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.300s] Level 5:colcon.colcon_core.verb:set package 'snapping_turtle' build argument 'cmake_clean_cache' from command line to 'False'
+[0.300s] Level 5:colcon.colcon_core.verb:set package 'snapping_turtle' build argument 'cmake_clean_first' from command line to 'False'
+[0.300s] Level 5:colcon.colcon_core.verb:set package 'snapping_turtle' build argument 'cmake_force_configure' from command line to 'False'
+[0.300s] Level 5:colcon.colcon_core.verb:set package 'snapping_turtle' build argument 'ament_cmake_args' from command line to 'None'
+[0.300s] Level 5:colcon.colcon_core.verb:set package 'snapping_turtle' build argument 'catkin_cmake_args' from command line to 'None'
+[0.301s] Level 5:colcon.colcon_core.verb:set package 'snapping_turtle' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.301s] DEBUG:colcon.colcon_core.verb:Building package 'snapping_turtle' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/patrick/ros2_ws/build/snapping_turtle', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/patrick/ros2_ws/install/snapping_turtle', 'merge_install': False, 'path': '/home/patrick/ros2_ws/src/snapping_turtle', 'symlink_install': False, 'test_result_base': None}
+[0.301s] Level 5:colcon.colcon_core.verb:set package 'snapping_turtle_2' build argument 'cmake_args' from command line to 'None'
+[0.301s] Level 5:colcon.colcon_core.verb:set package 'snapping_turtle_2' build argument 'cmake_target' from command line to 'None'
+[0.301s] Level 5:colcon.colcon_core.verb:set package 'snapping_turtle_2' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.301s] Level 5:colcon.colcon_core.verb:set package 'snapping_turtle_2' build argument 'cmake_clean_cache' from command line to 'False'
+[0.301s] Level 5:colcon.colcon_core.verb:set package 'snapping_turtle_2' build argument 'cmake_clean_first' from command line to 'False'
+[0.301s] Level 5:colcon.colcon_core.verb:set package 'snapping_turtle_2' build argument 'cmake_force_configure' from command line to 'False'
+[0.301s] Level 5:colcon.colcon_core.verb:set package 'snapping_turtle_2' build argument 'ament_cmake_args' from command line to 'None'
+[0.302s] Level 5:colcon.colcon_core.verb:set package 'snapping_turtle_2' build argument 'catkin_cmake_args' from command line to 'None'
+[0.302s] Level 5:colcon.colcon_core.verb:set package 'snapping_turtle_2' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.302s] DEBUG:colcon.colcon_core.verb:Building package 'snapping_turtle_2' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/patrick/ros2_ws/build/snapping_turtle_2', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/patrick/ros2_ws/install/snapping_turtle_2', 'merge_install': False, 'path': '/home/patrick/ros2_ws/src/snapping_turtle_2', 'symlink_install': False, 'test_result_base': None}
+[0.302s] Level 5:colcon.colcon_core.verb:set package 'turtlebot3_antmobile' build argument 'cmake_args' from command line to 'None'
+[0.302s] Level 5:colcon.colcon_core.verb:set package 'turtlebot3_antmobile' build argument 'cmake_target' from command line to 'None'
+[0.302s] Level 5:colcon.colcon_core.verb:set package 'turtlebot3_antmobile' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.302s] Level 5:colcon.colcon_core.verb:set package 'turtlebot3_antmobile' build argument 'cmake_clean_cache' from command line to 'False'
+[0.302s] Level 5:colcon.colcon_core.verb:set package 'turtlebot3_antmobile' build argument 'cmake_clean_first' from command line to 'False'
+[0.302s] Level 5:colcon.colcon_core.verb:set package 'turtlebot3_antmobile' build argument 'cmake_force_configure' from command line to 'False'
+[0.302s] Level 5:colcon.colcon_core.verb:set package 'turtlebot3_antmobile' build argument 'ament_cmake_args' from command line to 'None'
+[0.302s] Level 5:colcon.colcon_core.verb:set package 'turtlebot3_antmobile' build argument 'catkin_cmake_args' from command line to 'None'
+[0.302s] Level 5:colcon.colcon_core.verb:set package 'turtlebot3_antmobile' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.303s] DEBUG:colcon.colcon_core.verb:Building package 'turtlebot3_antmobile' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/patrick/ros2_ws/build/turtlebot3_antmobile', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/patrick/ros2_ws/install/turtlebot3_antmobile', 'merge_install': False, 'path': '/home/patrick/ros2_ws/src/turtlebot3_antmobile', 'symlink_install': False, 'test_result_base': None}
+[0.303s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.306s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.306s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/patrick/ros2_ws/src/snapping_turtle' with build type 'ament_python'
+[0.306s] Level 1:colcon.colcon_core.shell:create_environment_hook('snapping_turtle', 'ament_prefix_path')
+[0.310s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.310s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/patrick/ros2_ws/install/snapping_turtle/share/snapping_turtle/hook/ament_prefix_path.ps1'
+[0.311s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/patrick/ros2_ws/install/snapping_turtle/share/snapping_turtle/hook/ament_prefix_path.dsv'
+[0.311s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/patrick/ros2_ws/install/snapping_turtle/share/snapping_turtle/hook/ament_prefix_path.sh'
+[0.312s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.312s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.318s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/patrick/ros2_ws/src/snapping_turtle_2' with build type 'ament_python'
+[0.318s] Level 1:colcon.colcon_core.shell:create_environment_hook('snapping_turtle_2', 'ament_prefix_path')
+[0.320s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/patrick/ros2_ws/install/snapping_turtle_2/share/snapping_turtle_2/hook/ament_prefix_path.ps1'
+[0.321s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/patrick/ros2_ws/install/snapping_turtle_2/share/snapping_turtle_2/hook/ament_prefix_path.dsv'
+[0.321s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/patrick/ros2_ws/install/snapping_turtle_2/share/snapping_turtle_2/hook/ament_prefix_path.sh'
+[0.322s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.322s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.328s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/patrick/ros2_ws/src/turtlebot3_antmobile' with build type 'ament_python'
+[0.328s] Level 1:colcon.colcon_core.shell:create_environment_hook('turtlebot3_antmobile', 'ament_prefix_path')
+[0.330s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/patrick/ros2_ws/install/turtlebot3_antmobile/share/turtlebot3_antmobile/hook/ament_prefix_path.ps1'
+[0.330s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/patrick/ros2_ws/install/turtlebot3_antmobile/share/turtlebot3_antmobile/hook/ament_prefix_path.dsv'
+[0.330s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/patrick/ros2_ws/install/turtlebot3_antmobile/share/turtlebot3_antmobile/hook/ament_prefix_path.sh'
+[0.332s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.332s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.502s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/patrick/ros2_ws/src/snapping_turtle'
+[0.503s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.503s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.688s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/patrick/ros2_ws/src/snapping_turtle_2'
+[0.689s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.689s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.870s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/patrick/ros2_ws/src/turtlebot3_antmobile'
+[0.872s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.872s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.249s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/patrick/ros2_ws/src/turtlebot3_antmobile': PYTHONPATH=/home/patrick/ros2_ws/install/turtlebot3_antmobile/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/turtlebot3_antmobile build --build-base /home/patrick/ros2_ws/build/turtlebot3_antmobile/build install --prefix /home/patrick/ros2_ws/install/turtlebot3_antmobile --record /home/patrick/ros2_ws/build/turtlebot3_antmobile/install.log --single-version-externally-managed
+[1.258s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/patrick/ros2_ws/src/snapping_turtle': PYTHONPATH=/home/patrick/ros2_ws/install/snapping_turtle/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/snapping_turtle build --build-base /home/patrick/ros2_ws/build/snapping_turtle/build install --prefix /home/patrick/ros2_ws/install/snapping_turtle --record /home/patrick/ros2_ws/build/snapping_turtle/install.log --single-version-externally-managed
+[1.261s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/patrick/ros2_ws/src/snapping_turtle_2': PYTHONPATH=/home/patrick/ros2_ws/install/snapping_turtle_2/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/snapping_turtle_2 build --build-base /home/patrick/ros2_ws/build/snapping_turtle_2/build install --prefix /home/patrick/ros2_ws/install/snapping_turtle_2 --record /home/patrick/ros2_ws/build/snapping_turtle_2/install.log --single-version-externally-managed
+[1.524s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/patrick/ros2_ws/src/turtlebot3_antmobile' returned '0': PYTHONPATH=/home/patrick/ros2_ws/install/turtlebot3_antmobile/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/turtlebot3_antmobile build --build-base /home/patrick/ros2_ws/build/turtlebot3_antmobile/build install --prefix /home/patrick/ros2_ws/install/turtlebot3_antmobile --record /home/patrick/ros2_ws/build/turtlebot3_antmobile/install.log --single-version-externally-managed
+[1.530s] Level 1:colcon.colcon_core.environment:checking '/home/patrick/ros2_ws/install/turtlebot3_antmobile' for CMake module files
+[1.530s] Level 1:colcon.colcon_core.environment:checking '/home/patrick/ros2_ws/install/turtlebot3_antmobile' for CMake config files
+[1.531s] Level 1:colcon.colcon_core.environment:checking '/home/patrick/ros2_ws/install/turtlebot3_antmobile/lib'
+[1.531s] Level 1:colcon.colcon_core.environment:checking '/home/patrick/ros2_ws/install/turtlebot3_antmobile/bin'
+[1.532s] Level 1:colcon.colcon_core.environment:checking '/home/patrick/ros2_ws/install/turtlebot3_antmobile/lib/pkgconfig/turtlebot3_antmobile.pc'
+[1.532s] Level 1:colcon.colcon_core.environment:checking '/home/patrick/ros2_ws/install/turtlebot3_antmobile/lib/python3.8/site-packages'
+[1.532s] Level 1:colcon.colcon_core.shell:create_environment_hook('turtlebot3_antmobile', 'pythonpath')
+[1.533s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/patrick/ros2_ws/install/turtlebot3_antmobile/share/turtlebot3_antmobile/hook/pythonpath.ps1'
+[1.534s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/patrick/ros2_ws/install/turtlebot3_antmobile/share/turtlebot3_antmobile/hook/pythonpath.dsv'
+[1.534s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/patrick/ros2_ws/install/turtlebot3_antmobile/share/turtlebot3_antmobile/hook/pythonpath.sh'
+[1.535s] Level 1:colcon.colcon_core.environment:checking '/home/patrick/ros2_ws/install/turtlebot3_antmobile/bin'
+[1.535s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(turtlebot3_antmobile)
+[1.536s] INFO:colcon.colcon_core.shell:Creating package script '/home/patrick/ros2_ws/install/turtlebot3_antmobile/share/turtlebot3_antmobile/package.ps1'
+[1.537s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/patrick/ros2_ws/install/turtlebot3_antmobile/share/turtlebot3_antmobile/package.dsv'
+[1.538s] INFO:colcon.colcon_core.shell:Creating package script '/home/patrick/ros2_ws/install/turtlebot3_antmobile/share/turtlebot3_antmobile/package.sh'
+[1.538s] INFO:colcon.colcon_core.shell:Creating package script '/home/patrick/ros2_ws/install/turtlebot3_antmobile/share/turtlebot3_antmobile/package.bash'
+[1.539s] INFO:colcon.colcon_core.shell:Creating package script '/home/patrick/ros2_ws/install/turtlebot3_antmobile/share/turtlebot3_antmobile/package.zsh'
+[1.539s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/patrick/ros2_ws/install/turtlebot3_antmobile/share/colcon-core/packages/turtlebot3_antmobile)
+[1.543s] Level 1:colcon.colcon_core.environment:checking '/home/patrick/ros2_ws/install/snapping_turtle' for CMake module files
+[1.543s] Level 1:colcon.colcon_core.environment:checking '/home/patrick/ros2_ws/install/snapping_turtle' for CMake config files
+[1.544s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/patrick/ros2_ws/src/snapping_turtle' returned '0': PYTHONPATH=/home/patrick/ros2_ws/install/snapping_turtle/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/snapping_turtle build --build-base /home/patrick/ros2_ws/build/snapping_turtle/build install --prefix /home/patrick/ros2_ws/install/snapping_turtle --record /home/patrick/ros2_ws/build/snapping_turtle/install.log --single-version-externally-managed
+[1.544s] Level 1:colcon.colcon_core.environment:checking '/home/patrick/ros2_ws/install/snapping_turtle/lib'
+[1.544s] Level 1:colcon.colcon_core.environment:checking '/home/patrick/ros2_ws/install/snapping_turtle/bin'
+[1.544s] Level 1:colcon.colcon_core.environment:checking '/home/patrick/ros2_ws/install/snapping_turtle/lib/pkgconfig/snapping_turtle.pc'
+[1.544s] Level 1:colcon.colcon_core.environment:checking '/home/patrick/ros2_ws/install/snapping_turtle/lib/python3.8/site-packages'
+[1.544s] Level 1:colcon.colcon_core.shell:create_environment_hook('snapping_turtle', 'pythonpath')
+[1.546s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/patrick/ros2_ws/install/snapping_turtle/share/snapping_turtle/hook/pythonpath.ps1'
+[1.546s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/patrick/ros2_ws/install/snapping_turtle/share/snapping_turtle/hook/pythonpath.dsv'
+[1.546s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/patrick/ros2_ws/install/snapping_turtle/share/snapping_turtle/hook/pythonpath.sh'
+[1.547s] Level 1:colcon.colcon_core.environment:checking '/home/patrick/ros2_ws/install/snapping_turtle/bin'
+[1.547s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(snapping_turtle)
+[1.548s] INFO:colcon.colcon_core.shell:Creating package script '/home/patrick/ros2_ws/install/snapping_turtle/share/snapping_turtle/package.ps1'
+[1.549s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/patrick/ros2_ws/install/snapping_turtle/share/snapping_turtle/package.dsv'
+[1.549s] INFO:colcon.colcon_core.shell:Creating package script '/home/patrick/ros2_ws/install/snapping_turtle/share/snapping_turtle/package.sh'
+[1.550s] INFO:colcon.colcon_core.shell:Creating package script '/home/patrick/ros2_ws/install/snapping_turtle/share/snapping_turtle/package.bash'
+[1.550s] INFO:colcon.colcon_core.shell:Creating package script '/home/patrick/ros2_ws/install/snapping_turtle/share/snapping_turtle/package.zsh'
+[1.550s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/patrick/ros2_ws/install/snapping_turtle/share/colcon-core/packages/snapping_turtle)
+[1.552s] Level 1:colcon.colcon_core.environment:checking '/home/patrick/ros2_ws/install/snapping_turtle_2' for CMake module files
+[1.553s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/patrick/ros2_ws/src/snapping_turtle_2' returned '0': PYTHONPATH=/home/patrick/ros2_ws/install/snapping_turtle_2/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/snapping_turtle_2 build --build-base /home/patrick/ros2_ws/build/snapping_turtle_2/build install --prefix /home/patrick/ros2_ws/install/snapping_turtle_2 --record /home/patrick/ros2_ws/build/snapping_turtle_2/install.log --single-version-externally-managed
+[1.553s] Level 1:colcon.colcon_core.environment:checking '/home/patrick/ros2_ws/install/snapping_turtle_2' for CMake config files
+[1.554s] Level 1:colcon.colcon_core.environment:checking '/home/patrick/ros2_ws/install/snapping_turtle_2/lib'
+[1.554s] Level 1:colcon.colcon_core.environment:checking '/home/patrick/ros2_ws/install/snapping_turtle_2/bin'
+[1.554s] Level 1:colcon.colcon_core.environment:checking '/home/patrick/ros2_ws/install/snapping_turtle_2/lib/pkgconfig/snapping_turtle_2.pc'
+[1.554s] Level 1:colcon.colcon_core.environment:checking '/home/patrick/ros2_ws/install/snapping_turtle_2/lib/python3.8/site-packages'
+[1.554s] Level 1:colcon.colcon_core.shell:create_environment_hook('snapping_turtle_2', 'pythonpath')
+[1.556s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/patrick/ros2_ws/install/snapping_turtle_2/share/snapping_turtle_2/hook/pythonpath.ps1'
+[1.556s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/patrick/ros2_ws/install/snapping_turtle_2/share/snapping_turtle_2/hook/pythonpath.dsv'
+[1.556s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/patrick/ros2_ws/install/snapping_turtle_2/share/snapping_turtle_2/hook/pythonpath.sh'
+[1.557s] Level 1:colcon.colcon_core.environment:checking '/home/patrick/ros2_ws/install/snapping_turtle_2/bin'
+[1.557s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(snapping_turtle_2)
+[1.558s] INFO:colcon.colcon_core.shell:Creating package script '/home/patrick/ros2_ws/install/snapping_turtle_2/share/snapping_turtle_2/package.ps1'
+[1.558s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/patrick/ros2_ws/install/snapping_turtle_2/share/snapping_turtle_2/package.dsv'
+[1.559s] INFO:colcon.colcon_core.shell:Creating package script '/home/patrick/ros2_ws/install/snapping_turtle_2/share/snapping_turtle_2/package.sh'
+[1.559s] INFO:colcon.colcon_core.shell:Creating package script '/home/patrick/ros2_ws/install/snapping_turtle_2/share/snapping_turtle_2/package.bash'
+[1.560s] INFO:colcon.colcon_core.shell:Creating package script '/home/patrick/ros2_ws/install/snapping_turtle_2/share/snapping_turtle_2/package.zsh'
+[1.560s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/patrick/ros2_ws/install/snapping_turtle_2/share/colcon-core/packages/snapping_turtle_2)
+[1.560s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[1.560s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[1.561s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[1.561s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[1.567s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[1.567s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[1.567s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[1.580s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[1.581s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/patrick/ros2_ws/install/local_setup.ps1'
+[1.582s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/patrick/ros2_ws/install/_local_setup_util_ps1.py'
+[1.583s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/patrick/ros2_ws/install/setup.ps1'
+[1.585s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/patrick/ros2_ws/install/local_setup.sh'
+[1.586s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/patrick/ros2_ws/install/_local_setup_util_sh.py'
+[1.586s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/patrick/ros2_ws/install/setup.sh'
+[1.588s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/patrick/ros2_ws/install/local_setup.bash'
+[1.588s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/patrick/ros2_ws/install/setup.bash'
+[1.589s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/patrick/ros2_ws/install/local_setup.zsh'
+[1.590s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/patrick/ros2_ws/install/setup.zsh'

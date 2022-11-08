@@ -1,0 +1,4 @@
+[console_scripts]
+chomp_chomp = snapping_turtle_2.chomp_chomp:main
+snap_snap = snapping_turtle_2.snap_snap:main
+

@@ -1,0 +1,15 @@
+package.xml
+setup.cfg
+setup.py
+../../build/snapping_turtle_2/snapping_turtle.egg-info/PKG-INFO
+../../build/snapping_turtle_2/snapping_turtle.egg-info/SOURCES.txt
+../../build/snapping_turtle_2/snapping_turtle.egg-info/dependency_links.txt
+../../build/snapping_turtle_2/snapping_turtle.egg-info/entry_points.txt
+../../build/snapping_turtle_2/snapping_turtle.egg-info/requires.txt
+../../build/snapping_turtle_2/snapping_turtle.egg-info/top_level.txt
+../../build/snapping_turtle_2/snapping_turtle.egg-info/zip-safe
+snapping_turtle_2/__init__.py
+snapping_turtle_2/snap_snap.py
+test/test_copyright.py
+test/test_flake8.py
+test/test_pep257.py
