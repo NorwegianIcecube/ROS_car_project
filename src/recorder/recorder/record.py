@@ -49,9 +49,9 @@ class VideoRecorder(Node):
             self.out.write(frame)
             self.count+=1
             if cv2.waitKey(1) & self.count > 300:
-
+                
+                self.destroy_node()
                 rclpy.shutdown()
-                exit()
 
 def main():
     rclpy.init()
