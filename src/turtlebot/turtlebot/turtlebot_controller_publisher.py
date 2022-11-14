@@ -29,9 +29,9 @@ class Move_robot(Node):
         
     def move_callback(self):
         #called every 0.1 seconds by self.timer
-        self.message_publisher.publish(self.vel_msg)
+        self.message_publisher.publish(self.vel_msg)    
         #displayed after every called
-        self.get_logger().info('linear speed {}, angular speed {}'.format(self.linear_x, self.angular_z))
+        self.get_logger().info('linear speed {}, angular speed {}'.format(self.vel_msg.linear.x, self.vel_msg.angular.z))
             
     def shutdown_turtlebot(self):
         self.message_publisher.publish(Twist())
