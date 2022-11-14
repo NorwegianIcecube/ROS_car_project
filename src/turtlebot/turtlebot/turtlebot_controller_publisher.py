@@ -32,7 +32,9 @@ class Move_robot(Node):
         self.message_publisher.publish(self.vel_msg)    
         #displayed after every called
         self.get_logger().info('linear speed {}, angular speed {}'.format(self.vel_msg.linear.x, self.vel_msg.angular.z))
-            
+        self.vel_msg.linear.x += 0.02
+        
+        
     def shutdown_turtlebot(self):
         self.message_publisher.publish(Twist())
         
