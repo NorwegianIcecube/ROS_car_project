@@ -3,7 +3,7 @@ import cv2
 def main():
     cap = cv2.VideoCapture(0)
 
-    fourcc = cv2.VideoWriter_fourcc(*'MP4V')
+    fourcc = cv2.VideoWriter_fourcc(*'mp4v')
     out = cv2.VideoWriter('output.mp4', fourcc, 20.0, (640, 480))
     count = 0
     while(cap.isOpened()):
