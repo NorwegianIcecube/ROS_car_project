@@ -22,8 +22,8 @@ class Move_robot(Node):
         
         # twist message object
         self.vel_msg = Twist()
-        self.vel_msg.linear.x = 0.5
-        self.vel_msg.angular.z = -0.1
+        self.vel_msg.linear.x = 0.1
+        self.vel_msg.angular.z = 0.0
         
         self.r = self.create_rate(30)
         
