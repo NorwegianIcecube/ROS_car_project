@@ -1,4 +1,5 @@
 import cv2
+from keyboard import is_pressed
 
 def main():
     cap = cv2.VideoCapture(0)
@@ -14,7 +15,7 @@ def main():
             # write the flipped frame
             out.write(frame)
             print(0xFF, ord('q'))
-            if cv2.waitKey(1) & 0xFF == ord('q'):
+            if cv2.waitKey(1) & is_pressed('q'):
                 break
         else:
             break
