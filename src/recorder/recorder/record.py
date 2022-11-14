@@ -42,6 +42,7 @@ class VideoRecorder(Node):
 
     def timer_callback(self):
         ret, frame = self.cap.read()
+        self.get_logger().info(f'{ret, self.count}')
         if ret==True:
             frame = cv2.flip(frame,0)
             # write the flipped frame
