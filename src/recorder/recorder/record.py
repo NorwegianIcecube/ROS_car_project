@@ -13,6 +13,7 @@ def main():
 
             # write the flipped frame
             out.write(frame)
+            print(0xFF, ord('q'))
             if cv2.waitKey(1) & 0xFF == ord('q'):
                 break
         else:
