@@ -45,7 +45,7 @@ class VideoRecorder(Node):
             # write the flipped frame
             self.out.write(frame)
             self.count+=1
-            if cv2.waitKey(1) & self.count > 3000:
+            if cv2.waitKey(1) & self.count > 300:
                 exit()
 
 def main():
