@@ -33,12 +33,12 @@ class VideoRecorder(Node):
         timerPeriod = 0.1
         self.timer = self.create_timer(timerPeriod, self.timer_callback)
         self.count = 0
-        
-
-    def timer_callback(self):
         self.cap = cv2.VideoCapture(0)
         self.fourcc = cv2.VideoWriter_fourcc(*'mp4v')
         self.out = cv2.VideoWriter('output.mp4', self.fourcc, 20.0, (640, 480))
+        
+
+    def timer_callback(self):
         ret, frame = self.cap.read()
         if ret==True:
             frame = cv2.flip(frame,0)
