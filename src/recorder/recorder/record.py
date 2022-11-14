@@ -14,7 +14,7 @@ def main():
             # write the flipped frame
             out.write(frame)
             count+=1
-            if cv2.waitKey(1) & count < 30000:
+            if cv2.waitKey(1) & count > 30000:
                 break
         else:
             break
