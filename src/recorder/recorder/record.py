@@ -34,9 +34,6 @@ class VideoRecorder(Node):
         self.timer = self.create_timer(timerPeriod, self.timer_callback)
         self.count = 0
         self.cap = cv2.VideoCapture(0)
-        if not self.cap.isOpened():
-            self.get_logger().info('Cannot open camera')
-            exit()
         self.frame_width = int(self.cap.get(3))
         self.frame_height = int(self.cap.get(4))
         self.fourcc = cv2.VideoWriter_fourcc(*'MJPG')
@@ -46,7 +43,6 @@ class VideoRecorder(Node):
     def timer_callback(self):
         ret, frame = self.cap.read()
         if ret==True:
-            frame = cv2.flip(frame,0)
             # write the flipped frame
             self.out.write(frame)
             self.count+=1
