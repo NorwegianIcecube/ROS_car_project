@@ -34,8 +34,10 @@ class VideoRecorder(Node):
         self.timer = self.create_timer(timerPeriod, self.timer_callback)
         self.count = 0
         self.cap = cv2.VideoCapture(0)
+        self.frame_width = int(self.cap.get(3))
+        self.frame_height = int(self.cap.get(4))
         self.fourcc = cv2.VideoWriter_fourcc(*'mp4v')
-        self.out = cv2.VideoWriter('output.mp4', self.fourcc, 20.0, (640, 480))
+        self.out = cv2.VideoWriter('output.mp4', self.fourcc, 1//timerPeriod, (self.frame_width, self.frame_height))
         
 
     def timer_callback(self):
@@ -46,6 +48,8 @@ class VideoRecorder(Node):
             self.out.write(frame)
             self.count+=1
             if cv2.waitKey(1) & self.count > 300:
+
+                rclpy.shutdown()
                 exit()
 
 def main():
