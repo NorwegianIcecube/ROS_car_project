@@ -79,7 +79,7 @@ def getHistogram(img, display_hist=False, minPercentage=0.1, region=1):
                 color = (255, 0, 255)
             else:
                 color = (0, 0, 255)
-            cv2.line(imgHist, (x, img.shape[0]), (x, img.shape[0] - (intensity // 255 // region)), color, 1)
+            cv2.line(imgHist, (x, img.shape[0]), (x, int(img.shape[0] - (intensity // 255 // region))), color, 1)
         cv2.circle(imgHist, (basePoint, img.shape[0]), 20, (0, 255, 255), cv2.FILLED)       # plot the basepoint
         return basePoint, imgHist
 

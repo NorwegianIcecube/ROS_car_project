@@ -92,9 +92,9 @@ def pipeline(img):
 
 
 if __name__ == '__main__':
-    cap = cv2.VideoCapture(0)
+    cap = cv2.VideoCapture('/home/patrick/ros2_ws/src/turtlebot3_antmobile/turtlebot3_antmobile/drive.avi')
 
-    intialTracbarVals = [170, 120, 70, 430]  # width top, height top, width bottom, height bottom. Slider trackbar
+    intialTracbarVals = [30, 300, 0, 480]  # width top, height top, width bottom, height bottom. Slider trackbar
     utils.initializeTrackbars(intialTracbarVals, IMAGE_WIDTH, IMAGE_HEIGHT)
 
     frameCounter = 0
