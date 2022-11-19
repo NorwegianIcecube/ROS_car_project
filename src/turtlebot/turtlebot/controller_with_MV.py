@@ -80,8 +80,13 @@ class Move_robot(Node):
     def finish(self):
         self.cam.release()
         self.vel_msg.linear.x = 0.0
+        self.vel_msg.angular.z = 0.0
         self.message_publisher.publish(self.vel_msg)
         self.destroy_node()
+        rclpy.shutdown()
+        cv2.destroyAllWindows()
+        self.out.release()
+
         #cv2.destroyAllWindows()
         
         
