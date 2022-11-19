@@ -40,14 +40,14 @@ class VideoRecorder(Node):
         self.fourcc = cv2.VideoWriter_fourcc(*'MJPG')
         self.out = cv2.VideoWriter('testing.avi', self.fourcc, 1//timerPeriod, (self.frame_width, self.frame_height))
 
-    def fill_image(img):
+    def fill_image(self, img):
         h, w = img.shape
         # Fills the area inside the tape
         mask = np.zeros((h + 2, w + 2), np.uint8)
         cv2.floodFill(img, mask, (w//2, h-1), 255)
         return img
         
-    def warp_img(img, points, w, h, inv=False):
+    def warp_img(self, img, points, w, h, inv=False):
         pts1 = np.float32(points)
 
         print(h, w)
@@ -60,7 +60,7 @@ class VideoRecorder(Node):
         imgWarp = cv2.warpPerspective(img, matrix, (w, h))
         return imgWarp
     
-    def getHistogram(img, display_hist=False, minPercentage=0.1, region=1):
+    def getHistogram(self, img, display_hist=False, minPercentage=0.1, region=1):
         if region == 1:
             # Looking at the whole image
             histValues = np.sum(img, axis=0)
@@ -88,7 +88,7 @@ class VideoRecorder(Node):
 
         return basePoint
     
-    def stackImages(scale,imgArray):
+    def stackImages(self, scale, imgArray):
         rows = len(imgArray)
         cols = len(imgArray[0])
         rowsAvailable = isinstance(imgArray[0], list)
@@ -128,9 +128,9 @@ class VideoRecorder(Node):
             print(h, w)
             blurImg = cv2.blur(grayImg, (3,3))
             cannyImg = cv2.Canny(blurImg, 0, 200)
-            #p = [[30., 300.], [610., 300.], [0.,480.], [650., 480.]]
-            #warpedImg = self.warp_img(cannyImg, p, h, w)
-            warpedImg = cannyImg.copy()
+            p = [[30., 300.], [610., 300.], [0.,480.], [650., 480.]]
+            warpedImg = self.warp_img(cannyImg, p, h, w)
+            #warpedImg = cannyImg.copy()
             filledImg = self.fill_image(warpedImg)
             _, histImgSmall = self.getHistogram(filledImg, display_hist=True, minPercentage=0.1, region=5)
             _, histImgLarge = self.getHistogram(filledImg, display_hist=True, minPercentage=0.1, region=1)
