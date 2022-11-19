@@ -28,7 +28,7 @@ class Move_robot(Node):
         
         # twist message object
         self.vel_msg = Twist()
-        self.vel_msg.linear.x = 0.1
+        self.vel_msg.linear.x = 0.2
         self.vel_msg.angular.z = 0.0
         self.turn = self.vel_msg.angular.z
         
@@ -43,6 +43,7 @@ class Move_robot(Node):
 
         self.fourcc = cv2.VideoWriter_fourcc(*'MJPG')
         self.out = cv2.VideoWriter('testing.avi', self.fourcc, 1//timer_period, (self.IMAGE_WIDTH, self.IMAGE_HEIGHT))
+        self.count = 0
 
         
     def move_callback(self):
@@ -71,6 +72,9 @@ class Move_robot(Node):
         self.get_logger().info('linear speed {}, angular speed {}'.format(self.vel_msg.linear.x, self.vel_msg.angular.z))
         #self.vel_msg.linear.x += 0.02
     
+        self.count+=1
+        if cv2.waitKey(1) & self.count > 600:
+                exit()
     
     def finish(self):
         self.cam.release()
