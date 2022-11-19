@@ -27,7 +27,7 @@ class Move_robot(Node):
         
         # twist message object
         self.vel_msg = Twist()
-        self.vel_msg.linear.x = 0.1
+        self.vel_msg.linear.x = 0.05
         self.vel_msg.angular.z = 0.0
         self.turn = self.vel_msg.angular.z
         
@@ -74,7 +74,7 @@ class Move_robot(Node):
         self.count += 1
         print(float(self.count)*(100/80), " '%' finished")
         self.out.write(img_stack)
-        if cv2.waitKey(1) and self.count > 80:
+        if cv2.waitKey(1) and self.count > 120:
             self.vel_msg.linear.x = 0.0
             self.vel_msg.angular.z = 0.0
             self.message_publisher.publish(self.vel_msg)
