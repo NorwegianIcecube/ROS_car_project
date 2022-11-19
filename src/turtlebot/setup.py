@@ -22,6 +22,7 @@ setup(
     entry_points={
         'console_scripts': [
             'turtlebot_controller_publisher = turtlebot.turtlebot_controller_publisher:main'
+            'turtlebot_drive = turtlebot.controller_wit_MV:main'
         ],
     },
 )
