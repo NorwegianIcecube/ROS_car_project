@@ -29,7 +29,7 @@ def warp_img(img,points,w,h,inv=False):
 def _pass(a):
     pass
 
-
+'''
 # Trackbar for easier testing and finding the right position for the track points
 def initializeTrackbars(intialTracbarVals,wT=480, hT=240):
     cv2.namedWindow("Trackbars")
@@ -38,8 +38,8 @@ def initializeTrackbars(intialTracbarVals,wT=480, hT=240):
     cv2.createTrackbar("Height Top", "Trackbars", intialTracbarVals[1], hT, _pass)
     cv2.createTrackbar("Width Bottom", "Trackbars", intialTracbarVals[2],wT//2, _pass)
     cv2.createTrackbar("Height Bottom", "Trackbars", intialTracbarVals[3], hT, _pass)
-
-
+'''
+'''
 def valTrackbars(wT=480, hT=240):
     widthTop = cv2.getTrackbarPos("Width Top", "Trackbars")
     heightTop = cv2.getTrackbarPos("Height Top", "Trackbars")
@@ -48,7 +48,7 @@ def valTrackbars(wT=480, hT=240):
     points = np.float32([(widthTop, heightTop), (wT-widthTop, heightTop),
                       (widthBottom , heightBottom ), (wT-widthBottom, heightBottom)])
     return points
-
+'''
 
 def drawPoints(img,points):
     imgWarpPoints = img.copy()
@@ -104,13 +104,14 @@ def gray_hist_avg(hist):
     return avg
 
 
-def pipeline(img):
+def pipeline(img, points):
     
     img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     h, w = img_gray.shape
     img_blur = cv2.blur(img_gray, (3,3))
     img_canny = cv2.Canny(img_blur, 0, 200)
-    points = valTrackbars(IMAGE_WIDTH, IMAGE_HEIGHT)
+   
+    #valTrackbars(IMAGE_WIDTH, IMAGE_HEIGHT)
     img_warp = warp_img(img_canny, points, h, w)
     img_fill = fill_image(img_warp)
     _, hist = getHistogram(img_fill, display_hist=True, minPercentage=0.1, region=5)    
