@@ -72,7 +72,7 @@ class Move_robot(Node):
         self.get_logger().info('linear speed {}, angular speed {}'.format(self.vel_msg.linear.x, self.vel_msg.angular.z))
         #self.vel_msg.linear.x += 0.02
     
-        cv2.write(img_stack)
+        self.out.write(img_stack)
         self.count+=1
         if cv2.waitKey(1) & self.count > 100:
                 self.finish()
