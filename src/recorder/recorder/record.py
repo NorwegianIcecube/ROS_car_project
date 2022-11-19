@@ -38,7 +38,7 @@ class VideoRecorder(Node):
         self.frame_width = int(self.cap.get(3))
         self.frame_height = int(self.cap.get(4))
         self.fourcc = cv2.VideoWriter_fourcc(*'MJPG')
-        self.out = cv2.VideoWriter('testing.avi', self.fourcc, 1//timerPeriod, (self.frame_width, self.frame_height))
+        self.out = cv2.VideoWriter('testing.avi', self.fourcc, 1//timerPeriod, (1152, 576))
 
     def fill_image(self, img):
         h, w = img.shape
@@ -49,8 +49,6 @@ class VideoRecorder(Node):
         
     def warp_img(self, img, points, w, h, inv=False):
         pts1 = np.float32(points)
-
-        print(h, w)
 
         pts2 = np.float32([[0, 0], [w, 0], [0, h], [w, h]])
         if inv:
@@ -125,7 +123,6 @@ class VideoRecorder(Node):
 
             grayImg = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
             h, w = grayImg.shape
-            print(h, w)
             blurImg = cv2.blur(grayImg, (3,3))
             cannyImg = cv2.Canny(blurImg, 0, 200)
             p = [[30., 300.], [610., 300.], [0.,480.], [650., 480.]]
@@ -135,11 +132,14 @@ class VideoRecorder(Node):
             _, histImgSmall = self.getHistogram(filledImg, display_hist=True, minPercentage=0.1, region=5)
             _, histImgLarge = self.getHistogram(filledImg, display_hist=True, minPercentage=0.1, region=1)
 
-            imgStack = self.stackImages(0.5, ([frame, cannyImg, warpedImg], [filledImg, histImgSmall, histImgLarge]))
+            imgStack = self.stackImages(0.6, ([frame, cannyImg, warpedImg], [filledImg, histImgSmall, histImgLarge]))
+            
+            ish, isw =imgStack.shape[:2]
+            print(ish, isw)
 
             self.out.write(imgStack)
             self.count+=1
-            if cv2.waitKey(1) & self.count > 60:
+            if cv2.waitKey(1) & self.count > 600:
                 exit()
 
 def main():
