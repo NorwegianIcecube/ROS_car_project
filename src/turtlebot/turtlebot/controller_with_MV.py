@@ -41,8 +41,11 @@ class Move_robot(Node):
         self.trackbarvals = [[30., 300.], [610., 300.], [0.,480.], [650., 480.]]
         #self.inittrackbas = initializeTrackbars(self.trackbarvals, self.IMAGE_WIDTH, self.IMAGE_HEIGHT)
 
+        self.emptyImg = np.zeros((self.IMAGE_HEIGHT, self.IMAGE_WIDTH, 3), np.uint8)
+        self.emptyStack = stackImages(0.5, ([self.emptyImg, self.emptyImg, self.emptyImg], [self.emptyImg, self.emptyImg, self.emptyImg]))
+        self.stackHeight, self.stackWidth = self.emptyStack.shape[:2]
         self.fourcc = cv2.VideoWriter_fourcc(*'MJPG')
-        self.out = cv2.VideoWriter('testing.avi', self.fourcc, 1//timer_period, ((self.IMAGE_WIDTH*3)//2, (self.IMAGE_HEIGHT*3)//2))
+        self.out = cv2.VideoWriter('testing.avi', self.fourcc, 10, (self.stackHeight, self.stackWidth))
         self.count = 0
 
         
