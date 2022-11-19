@@ -80,7 +80,8 @@ class Move_robot(Node):
     def finish(self):
         self.cam.release()
         self.vel_msg.linear.x = 0.0
-        self.timer.destroy()
+        self.message_publisher.publish(self.vel_msg)
+        self.destroy_node()
         #cv2.destroyAllWindows()
         
         
