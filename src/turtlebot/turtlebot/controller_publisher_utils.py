@@ -143,6 +143,7 @@ def pipeline(img, points, turn):
    
     #valTrackbars(IMAGE_WIDTH, IMAGE_HEIGHT)
     img_warp = warp_img(img_canny, points, h, w)
+    img_fill = img_warp.copy()
     img_fill = fill_image(img_warp)
     _, hist = getHistogram(img_fill, display_hist=True, minPercentage=0.1, region=5)    
     
