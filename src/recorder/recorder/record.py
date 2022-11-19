@@ -136,6 +136,7 @@ class VideoRecorder(Node):
                 self.count+=1
                 if cv2.waitKey(1) & self.count > 600:
                     exit()
+                print(self.count)
             except:
                 pass
 
