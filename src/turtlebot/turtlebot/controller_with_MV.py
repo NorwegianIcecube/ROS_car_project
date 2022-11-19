@@ -23,7 +23,7 @@ class Move_robot(Node):
         self.message_publisher = self.create_publisher(Twist, self.topic_port, 10) #(msg type, topic, queuesize(?))
         
         # how often the callback function is called
-        timer_period = 0.05
+        timer_period = 0.1
         self.timer = self.create_timer(timer_period, self.move_callback)
         
         # twist message object
