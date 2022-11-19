@@ -4,7 +4,8 @@ from rclpy.node import Node
 from geometry_msgs.msg import Twist
 import cv2
 import numpy as np
-import .controller_publisher_utils as utils
+#import controller_publisher_utils as utils
+from .controller_publisher_utils import *
 from collections import Counter
 
 
@@ -37,7 +38,7 @@ class Move_robot(Node):
         self.framecounter = 0
         self.cam = cv2.VideoCapture(0)
         self.trackbarvals = [30, 300, 0, 480]
-        self.inittrackbars = utils.initializeTrackbars(self.trackbarvals, self.IMAGE_WIDTH, self.IMAGE_HEIGHTMAGE_HEIGHT)
+        self.inittrackbars = initializeTrackbars(self.trackbarvals, self.IMAGE_WIDTH, self.IMAGE_HEIGHTMAGE_HEIGHT)
 
         
     def move_callback(self):
@@ -50,7 +51,7 @@ class Move_robot(Node):
         _, img = self.cam.read()  # GET THE IMAGE
         img = cv2.resize(img, (self.IMAGE_WIDTH, self.IMAGE_HEIGHT))  # RESIZE
         
-        hist, turn, warp = utils.pipeline(img)
+        hist, turn, warp = pipeline(img)
         self.vel_msg.angular.z = turn
         
         cv2.imshow("video", img)
