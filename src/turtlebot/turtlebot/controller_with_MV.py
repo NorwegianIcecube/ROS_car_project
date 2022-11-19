@@ -44,9 +44,9 @@ class Move_robot(Node):
     def move_callback(self):
         
         self.framecounter += 1
-        if self.cam.get(cv2.CAP_PROP_FRAME_COUNT) == frameCounter:
+        if self.cam.get(cv2.CAP_PROP_FRAME_COUNT) == self.framecounter:
             self.cam.set(cv2.CAP_PROP_POS_FRAMES, 0)
-            frameCounter = 0
+            self.framecounter = 0
 
         _, img = self.cam.read()  # GET THE IMAGE
         img = cv2.resize(img, (self.IMAGE_WIDTH, self.IMAGE_HEIGHT))  # RESIZE
