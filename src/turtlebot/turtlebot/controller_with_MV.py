@@ -2,10 +2,9 @@
 import rclpy
 from rclpy.node import Node
 from geometry_msgs.msg import Twist
-import random
 import cv2
 import numpy as np
-import controller_publisher_utils as utils
+import .controller_publisher_utils as utils
 from collections import Counter
 
 
