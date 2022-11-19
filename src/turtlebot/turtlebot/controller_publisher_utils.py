@@ -127,7 +127,7 @@ def pipeline(img, points):
     
     
     mid = hist.shape[1]//2
-    turn = 0
+    turn = 0.0
     
     if avg < mid - treshold:
         turn += -0.01
