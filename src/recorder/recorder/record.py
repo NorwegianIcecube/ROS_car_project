@@ -49,6 +49,9 @@ class VideoRecorder(Node):
         
     def warp_img(img, points, w, h, inv=False):
         pts1 = np.float32(points)
+
+        print(h, w)
+
         pts2 = np.float32([[0, 0], [w, 0], [0, h], [w, h]])
         if inv:
             matrix = cv2.getPerspectiveTransform(pts2, pts1)
@@ -123,9 +126,11 @@ class VideoRecorder(Node):
 
             grayImg = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
             h, w = grayImg.shape
+            print(h, w)
             blurImg = cv2.blur(grayImg, (3,3))
             cannyImg = cv2.Canny(blurImg, 0, 200)
-            warpedImg = self.warp_img(cannyImg, [[30., 300.], [610., 300.], [0.,480.], [650., 480.]], h, w)
+            #warpedImg = self.warp_img(cannyImg, [[30., 300.], [610., 300.], [0.,480.], [650., 480.]], h, w)
+            warpedImg = cannyImg
             filledImg = self.fill_image(warpedImg)
             _, histImgSmall = self.getHistogram(filledImg, display_hist=True, minPercentage=0.1, region=5)
             _, histImgLarge = self.getHistogram(filledImg, display_hist=True, minPercentage=0.1, region=1)
