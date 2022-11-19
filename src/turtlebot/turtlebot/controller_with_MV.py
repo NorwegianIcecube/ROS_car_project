@@ -37,8 +37,8 @@ class Move_robot(Node):
         self.IMAGE_HEIGHT = 480
         self.framecounter = 0
         self.cam = cv2.VideoCapture(0)
-        self.trackbarvals = [30, 300, 0, 480]
-        self.inittrackbars = initializeTrackbars(self.trackbarvals, self.IMAGE_WIDTH, self.IMAGE_HEIGHT)
+        self.trackbarvals = [[30., 300.], [610., 300.], [0.,480.], [650., 480.]]
+        self.inittrackbas = initializeTrackbars(self.trackbarvals, self.IMAGE_WIDTH, self.IMAGE_HEIGHT)
 
         
     def move_callback(self):
@@ -51,15 +51,15 @@ class Move_robot(Node):
         _, img = self.cam.read()  # GET THE IMAGE
         img = cv2.resize(img, (self.IMAGE_WIDTH, self.IMAGE_HEIGHT))  # RESIZE
         
-        hist, turn, warp = pipeline(img)
+        hist, turn, warp = pipeline(img, self.trackbarvals)
         self.vel_msg.angular.z = turn
         
         #cv2.imshow("video", img)
-        both = cv2.addWeighted(warp, 0.5, hist, 0.5, 0.0)
+        #both = cv2.addWeighted(warp, 0.5, hist, 0.5, 0.0)
         #cv2.imshow("both", both)
                 
-        if cv2.waitKey(1) & 0xFF == ord('q'):  # press q To exit
-            self.finish
+        #if cv2.waitKey(1) & 0xFF == ord('q'):  # press q To exit
+        #    self.finish
         
         #called every 0.1 seconds by self.timer
         self.message_publisher.publish(self.vel_msg)    
@@ -70,7 +70,7 @@ class Move_robot(Node):
     
     def finish(self):
         self.cam.release()
-        cv2.destroyAllWindows()
+        #cv2.destroyAllWindows()
         
         
     
