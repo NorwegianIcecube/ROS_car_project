@@ -74,7 +74,7 @@ class Move_robot(Node):
         self.count += 1
         print(float(self.count)*(100/60), " percent finished")
         self.out.write(img_stack)
-        if cv2.waitKey(1) and self.count > 60:
+        if cv2.waitKey(1) and self.count > 20:
             self.vel_msg.linear.x = 0.0
             self.vel_msg.angular.z = 0.0
             self.message_publisher.publish(self.vel_msg)
@@ -84,10 +84,6 @@ class Move_robot(Node):
             self.cam.release()
             print("released camera")
             cv2.destroyAllWindows()
-            self.destroy_node()
-            print("destroyed node")
-            rclpy.shutdown()
-            print("shutdown rclpy")
             self.shutdown_turtlebot()
             print("shutdown turtlebot")
             exit()  
