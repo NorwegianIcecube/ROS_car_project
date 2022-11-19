@@ -41,6 +41,9 @@ class Move_robot(Node):
         self.trackbarvals = [[30., 300.], [610., 300.], [0.,480.], [650., 480.]]
         #self.inittrackbas = initializeTrackbars(self.trackbarvals, self.IMAGE_WIDTH, self.IMAGE_HEIGHT)
 
+        self.fourcc = cv2.VideoWriter_fourcc(*'MJPG')
+        self.out = cv2.VideoWriter('testing.avi', self.fourcc, 1//timer_period, (self.IMAGE_WIDTH, self.IMAGE_HEIGHT))
+
         
     def move_callback(self):
         

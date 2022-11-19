@@ -5,21 +5,70 @@
 import cv2
 import numpy as np
 
-def thresholding(img):
-    imgGray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
-    imgBlur = cv2.GaussianBlur(imgGray,(5,5),1)
-    imgCanny = cv2.Canny(imgBlur,200,200)
-    kernel = np.ones((5,5))
-    imgDial = cv2.dilate(imgCanny,kernel,iterations=2)
-    imgThres = cv2.erode(imgDial,kernel,iterations=1)
-    return imgThres
+def group_edge_points(img):
+    """ Groups the points into left and right points """
+    all_points = np.argwhere(img == 255)
+    # Sort all points in descending order by y
+    all_points = sorted(all_points, key=lambda x: x[1], reverse=True)
+    left_points = []
+    right_points = []
+    imgHeight, imgWidth = img.shape
+    # Check for white pixels within 10 pixels of the left and right edges
+    leftLine, rightLine = False, False
+    for i in range(0, 10):
+        for j in range(imgHeight, imgHeight//2, -1):
+            if img[j][i] == 255 and not leftLine:
+                leftLine = True
+                left_points.append(np.array([i, j]))
+            if img[j][imgWidth-i-1] == 255 and not rightLine:
+                rightLine = True
+                right_points.append(np.array([imgWidth-i, j]))
+            if leftLine and rightLine:
+                break
+    
+    if leftLine and rightLine:
+        lineNums = 2
+    elif leftLine or rightLine:
+        lineNums = 1
+        if leftLine:
+            left_points = all_points
+            return left_points, None
+        else:
+            right_points = all_points
+            return None, right_points
+        
+    else:
+        return None, None
+    
+    #print first five points of all points and first point of left and right points
+    print(all_points[:5],  left_points[0], right_points[0])
+    cv2.waitKey(0)
+    # Group the points by adding them to the closest line
+    for point in all_points:
+        # Find euclidean distance to the last point in each line
+        leftDist = np.linalg.norm(np.array(point) - np.array(left_points[-1]))
+        rightDist = np.linalg.norm(np.array(point) - np.array(right_points[-1]))
+        if leftDist < rightDist:
+            left_points.append(point)
+        else:
+            right_points.append(point)
+    return left_points, right_points
 
-def edge_detection(img):
-    img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-    img = cv2.GaussianBlur(img, (5, 5), 0)
-    img = cv2.Canny(img, 50, 150)
+
+def draw_lines(img, left_points, right_points):
+    """ Draws lane lines on the image """
+    if left_points is not None:
+        #left_points = sorted(left_points, key=lambda x: x[1])
+        for i in range(len(left_points)-1):
+            cv2.line(img, left_points[i], left_points[i+1], (0, 255, 0), 2)
+            
+            
+    if right_points is not None:
+        #right_points = sorted(right_points, key=lambda x: x[1])
+        for i in range(len(right_points)-1):
+            cv2.line(img, right_points[i], right_points[i+1], (0, 255, 0), 2)
     return img
-
+    
 def fill_image(img):
     h, w = img.shape
 

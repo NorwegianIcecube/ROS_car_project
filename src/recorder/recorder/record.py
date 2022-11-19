@@ -78,7 +78,6 @@ class VideoRecorder(Node):
         if display_hist:
             imgHist = np.zeros((img.shape[0], img.shape[1], 3), np.uint8)
             for x, intensity in enumerate(histValues):
-                # print(intensity)
                 if intensity > minVal:
                     color = (255, 0, 255)
                 else:

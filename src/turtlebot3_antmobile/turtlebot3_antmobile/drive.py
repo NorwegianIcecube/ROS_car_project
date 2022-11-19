@@ -2,11 +2,13 @@ import cv2
 import numpy as np
 import utils
 import stackimages
+import plotly.express as px
 
 TESTING = True
 
 IMAGE_WIDTH = 640
 IMAGE_HEIGHT = 480
+
 
 def onBot():
     pass
@@ -57,6 +59,20 @@ def pipeline(img):
     kernel = np.ones((5, 5), np.uint8)
     edges = cv2.dilate(edges, kernel, iterations=1)
 
+    left_points, right_points = utils.group_edge_points(edges)
+
+    drawingImg = imgWarp.copy()
+    drawingImgLines = utils.draw_lines(drawingImg, left_points, right_points)
+    if drawingImgLines.all() != drawingImg.all():
+        last_left_points = left_points
+        last_right_points = right_points
+    else:
+        try:
+            drawingImgLines = utils.draw_lines(drawingImg, last_left_points, last_right_points)
+        except:
+            pass
+    drawingImg = drawingImgLines
+
     img_filled = edges.copy()
     utils.fill_image(img_filled)
 
@@ -65,9 +81,10 @@ def pipeline(img):
 
     print(curvature-vehicle_pos_in_lane)
 
-    imgStacked = stackimages.stackImages(0.7, ([imgWarpPoints, boxBlur, edges],
+    imgStacked = stackimages.stackImages(0.7, ([imgWarpPoints, edges, drawingImg],
                                             [img_filled, imgHist, btm_img_hist]))
     cv2.imshow('ImageStack', imgStacked)
+
 
 
 
