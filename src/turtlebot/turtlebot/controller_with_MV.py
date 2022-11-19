@@ -41,13 +41,6 @@ class Move_robot(Node):
         self.trackbarvals = [[30., 300.], [610., 300.], [0.,480.], [650., 480.]]
         #self.inittrackbas = initializeTrackbars(self.trackbarvals, self.IMAGE_WIDTH, self.IMAGE_HEIGHT)
 
-        self.emptyImg = np.zeros((self.IMAGE_HEIGHT, self.IMAGE_WIDTH, 3), np.uint8)
-        self.emptyStack = stackImages(0.5, ([self.emptyImg, self.emptyImg, self.emptyImg], [self.emptyImg, self.emptyImg, self.emptyImg]))
-        self.stackHeight, self.stackWidth = self.emptyStack.shape[:2]
-        self.fourcc = cv2.VideoWriter_fourcc(*'MJPG')
-        self.out = cv2.VideoWriter('testing.avi', self.fourcc, 10, (self.stackHeight, self.stackWidth))
-        self.count = 0
-
         
     def move_callback(self):
         
@@ -75,23 +68,9 @@ class Move_robot(Node):
         self.get_logger().info('linear speed {}, angular speed {}'.format(self.vel_msg.linear.x, self.vel_msg.angular.z))
         #self.vel_msg.linear.x += 0.02
     
-        self.out.write(img_stack)
-        self.count+=1
-        if cv2.waitKey(1) & self.count > 100:
-                self.finish()
     
     def finish(self):
         self.cam.release()
-        self.vel_msg.linear.x = 0.0
-        self.vel_msg.angular.z = 0.0
-        self.message_publisher.publish(self.vel_msg)
-        self.destroy_node()
-        rclpy.shutdown()
-        cv2.destroyAllWindows()
-        self.out.release()
-        exit()
-        #cv2.destroyAllWindows()
-        
         
     
         
