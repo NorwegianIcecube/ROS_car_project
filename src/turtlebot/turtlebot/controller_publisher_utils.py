@@ -135,8 +135,13 @@ def pipeline(img, points, turn):
         turn += 0.01
     
     else:
-        #turn = 0.0
-        pass
+        if turn > 0:
+            turn += -0.01
+        elif turn < 0:
+            turn += 0.01
+        else:
+            turn = 0
+            
         
     return hist, turn, warp_img(img, points, h, w), turn
     
