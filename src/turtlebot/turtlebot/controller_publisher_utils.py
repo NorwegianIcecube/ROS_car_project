@@ -118,7 +118,7 @@ def pipeline(img, points, turn):
     
     avg = gray_hist_avg(hist)
     
-    treshold = 20
+    treshold = 5
 
     cv2.line(hist, (avg, hist.shape[0]), (avg, hist.shape[1]), (0, 255, 255), 2)
     cv2.line(hist, (hist.shape[1]//2, 0), (hist.shape[1]//2, hist.shape[0]), (255, 0, 0), 2)
@@ -135,13 +135,8 @@ def pipeline(img, points, turn):
         turn += 0.01
     
     else:
-        if turn > 0:
-            turn += -0.01
-        elif turn < 0:
-            turn += 0.01
-        else:
-            turn = 0
-            
+        turn = 0.0
+
         
     return hist, turn, warp_img(img, points, h, w), turn
     
