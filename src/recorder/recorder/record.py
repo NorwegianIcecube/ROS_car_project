@@ -128,9 +128,9 @@ class VideoRecorder(Node):
             print(h, w)
             blurImg = cv2.blur(grayImg, (3,3))
             cannyImg = cv2.Canny(blurImg, 0, 200)
-            p = [[30., 300.], [610., 300.], [0.,480.], [650., 480.]]
-            warpedImg = self.warp_img(cannyImg, p, h, w)
-            #warpedImg = cannyImg
+            #p = [[30., 300.], [610., 300.], [0.,480.], [650., 480.]]
+            #warpedImg = self.warp_img(cannyImg, p, h, w)
+            warpedImg = cannyImg.copy()
             filledImg = self.fill_image(warpedImg)
             _, histImgSmall = self.getHistogram(filledImg, display_hist=True, minPercentage=0.1, region=5)
             _, histImgLarge = self.getHistogram(filledImg, display_hist=True, minPercentage=0.1, region=1)
@@ -139,7 +139,7 @@ class VideoRecorder(Node):
 
             self.out.write(imgStack)
             self.count+=1
-            if cv2.waitKey(1) & self.count > 600:
+            if cv2.waitKey(1) & self.count > 60:
                 exit()
 
 def main():
