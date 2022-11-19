@@ -118,12 +118,14 @@ def pipeline(img, points):
     
     avg = gray_hist_avg(hist)
     
+    treshold = 30
+
     cv2.line(hist, (avg, hist.shape[0]), (avg, hist.shape[1]), (0, 255, 255), 2)
     cv2.line(hist, (hist.shape[1]//2, 0), (hist.shape[1]//2, hist.shape[0]), (255, 0, 0), 2)
     cv2.line(hist, (hist.shape[1]//2 + treshold, 0), (hist.shape[1]//2 + treshold, hist.shape[0]), (0, 255, 0), 2)
     cv2.line(hist, (hist.shape[1]//2 - treshold, 0), (hist.shape[1]//2 - treshold, hist.shape[0]), (0, 255, 0), 2)
     
-    treshold = 30
+    
     mid = hist.shape[1]//2
     turn = 0
     
