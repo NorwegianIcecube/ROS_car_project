@@ -169,7 +169,7 @@ def pipeline(img, points, turn):
 
     _, largeHist = getHistogram(img_fill, display_hist=True, minPercentage=0.1, region=1)
     global img_stack
-    img_stack = stackImages(0.5, ([img, img_canny, img_warp],
+    img_stack = stackImages(0.6, ([img, img_canny, img_warp],
                                     [img_fill, hist, largeHist]))
 
     

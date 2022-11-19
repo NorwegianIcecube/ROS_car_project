@@ -40,6 +40,10 @@ class Move_robot(Node):
         self.trackbarvals = [[30., 300.], [610., 300.], [0.,480.], [650., 480.]]
         #self.inittrackbas = initializeTrackbars(self.trackbarvals, self.IMAGE_WIDTH, self.IMAGE_HEIGHT)
 
+        self.count = 0
+        self.fourcc = cv2.VideoWriter_fourcc(*'MJPG')
+        self.out = cv2.VideoWriter('testing.avi', self.fourcc, 1//timer_period, (1152, 576))
+
         
     def move_callback(self):
         
@@ -66,7 +70,22 @@ class Move_robot(Node):
         #displayed after every called
         self.get_logger().info('linear speed {}, angular speed {}'.format(self.vel_msg.linear.x, self.vel_msg.angular.z))
         #self.vel_msg.linear.x += 0.02
-    
+
+        self.count += 1
+        self.out.write(img_stack)
+        if cv2.waitKey(1) and self.count > 600:
+            self.out.release()
+            print("released video")
+            self.cam.release()
+            print("released camera")
+            cv2.destroyAllWindows()
+            self.destroy_node()
+            print("destroyed node")
+            rclpy.shutdown()
+            print("shutdown rclpy")
+            self.shutdown_turtlebot()
+            print("shutdown turtlebot")
+            exit()  
     
     def finish(self):
         self.cam.release()
