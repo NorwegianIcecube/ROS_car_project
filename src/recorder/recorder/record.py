@@ -120,21 +120,24 @@ class VideoRecorder(Node):
     def timer_callback(self):
         ret, frame = self.cap.read()
         if ret==True:
-            grayImg = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-            h, w = grayImg.shape
-            blurImg = cv2.blur(grayImg, (3,3))
-            cannyImg = cv2.Canny(blurImg, 0, 200)
-            warpedImg = self.warp_img(cannyImg, [[30., 300.], [610., 300.], [0.,480.], [650., 480.]], h, w)
-            filledImg = self.fill_image(warpedImg)
-            _, histImgSmall = self.getHistogram(filledImg, display_hist=True, minPercentage=0.1, region=5)
-            _, histImgLarge = self.getHistogram(filledImg, display_hist=True, minPercentage=0.1, region=1)
+            try:
+                grayImg = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+                h, w = grayImg.shape
+                blurImg = cv2.blur(grayImg, (3,3))
+                cannyImg = cv2.Canny(blurImg, 0, 200)
+                warpedImg = self.warp_img(cannyImg, [[30., 300.], [610., 300.], [0.,480.], [650., 480.]], h, w)
+                filledImg = self.fill_image(warpedImg)
+                _, histImgSmall = self.getHistogram(filledImg, display_hist=True, minPercentage=0.1, region=5)
+                _, histImgLarge = self.getHistogram(filledImg, display_hist=True, minPercentage=0.1, region=1)
 
-            imgStack = self.stackImages(0.5, ([frame, cannyImg, warpedImg], [filledImg, histImgSmall, histImgLarge]))
+                imgStack = self.stackImages(0.5, ([frame, cannyImg, warpedImg], [filledImg, histImgSmall, histImgLarge]))
 
-            self.out.write(imgStack)
-            self.count+=1
-            if cv2.waitKey(1) & self.count > 600:
-                exit()
+                self.out.write(imgStack)
+                self.count+=1
+                if cv2.waitKey(1) & self.count > 600:
+                    exit()
+            except:
+                pass
 
 def main():
     rclpy.init()
