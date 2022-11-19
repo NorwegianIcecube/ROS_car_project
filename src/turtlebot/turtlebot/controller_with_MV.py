@@ -72,8 +72,13 @@ class Move_robot(Node):
         #self.vel_msg.linear.x += 0.02
 
         self.count += 1
+        print(float(self.count)*(100/60), " percent finished")
         self.out.write(img_stack)
-        if cv2.waitKey(1) and self.count > 600:
+        if cv2.waitKey(1) and self.count > 60:
+            self.vel_msg.linear.x = 0.0
+            self.vel_msg.angular.z = 0.0
+            self.message_publisher.publish(self.vel_msg)
+            print("stopped")
             self.out.release()
             print("released video")
             self.cam.release()
