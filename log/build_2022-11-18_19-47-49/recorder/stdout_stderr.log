@@ -1,0 +1,35 @@
+running egg_info
+creating ../../build/recorder/recorder.egg-info
+writing ../../build/recorder/recorder.egg-info/PKG-INFO
+writing dependency_links to ../../build/recorder/recorder.egg-info/dependency_links.txt
+writing entry points to ../../build/recorder/recorder.egg-info/entry_points.txt
+writing requirements to ../../build/recorder/recorder.egg-info/requires.txt
+writing top-level names to ../../build/recorder/recorder.egg-info/top_level.txt
+writing manifest file '../../build/recorder/recorder.egg-info/SOURCES.txt'
+reading manifest file '../../build/recorder/recorder.egg-info/SOURCES.txt'
+writing manifest file '../../build/recorder/recorder.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/eirik/ROS_car_project/build/recorder/build
+creating /home/eirik/ROS_car_project/build/recorder/build/lib
+creating /home/eirik/ROS_car_project/build/recorder/build/lib/recorder
+copying recorder/record.py -> /home/eirik/ROS_car_project/build/recorder/build/lib/recorder
+copying recorder/__init__.py -> /home/eirik/ROS_car_project/build/recorder/build/lib/recorder
+running install
+running install_lib
+creating /home/eirik/ROS_car_project/install/recorder/lib/python3.8/site-packages/recorder
+copying /home/eirik/ROS_car_project/build/recorder/build/lib/recorder/record.py -> /home/eirik/ROS_car_project/install/recorder/lib/python3.8/site-packages/recorder
+copying /home/eirik/ROS_car_project/build/recorder/build/lib/recorder/__init__.py -> /home/eirik/ROS_car_project/install/recorder/lib/python3.8/site-packages/recorder
+byte-compiling /home/eirik/ROS_car_project/install/recorder/lib/python3.8/site-packages/recorder/record.py to record.cpython-38.pyc
+byte-compiling /home/eirik/ROS_car_project/install/recorder/lib/python3.8/site-packages/recorder/__init__.py to __init__.cpython-38.pyc
+running install_data
+creating /home/eirik/ROS_car_project/install/recorder/share/ament_index
+creating /home/eirik/ROS_car_project/install/recorder/share/ament_index/resource_index
+creating /home/eirik/ROS_car_project/install/recorder/share/ament_index/resource_index/packages
+copying resource/recorder -> /home/eirik/ROS_car_project/install/recorder/share/ament_index/resource_index/packages
+copying package.xml -> /home/eirik/ROS_car_project/install/recorder/share/recorder
+running install_egg_info
+Copying ../../build/recorder/recorder.egg-info to /home/eirik/ROS_car_project/install/recorder/lib/python3.8/site-packages/recorder-0.0.0-py3.8.egg-info
+running install_scripts
+Installing recorder script to /home/eirik/ROS_car_project/install/recorder/lib/recorder
+writing list of installed files to '/home/eirik/ROS_car_project/build/recorder/install.log'

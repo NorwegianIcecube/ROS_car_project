@@ -1,0 +1,21 @@
+[2.178s] Invoking command in '/home/eirik/ROS_car_project/src/recorder': PYTHONPATH=/home/eirik/ROS_car_project/install/recorder/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/recorder build --build-base /home/eirik/ROS_car_project/build/recorder/build install --prefix /home/eirik/ROS_car_project/install/recorder --record /home/eirik/ROS_car_project/build/recorder/install.log --single-version-externally-managed
+[2.461s] running egg_info
+[2.461s] writing ../../build/recorder/recorder.egg-info/PKG-INFO
+[2.462s] writing dependency_links to ../../build/recorder/recorder.egg-info/dependency_links.txt
+[2.462s] writing entry points to ../../build/recorder/recorder.egg-info/entry_points.txt
+[2.462s] writing requirements to ../../build/recorder/recorder.egg-info/requires.txt
+[2.462s] writing top-level names to ../../build/recorder/recorder.egg-info/top_level.txt
+[2.505s] reading manifest file '../../build/recorder/recorder.egg-info/SOURCES.txt'
+[2.506s] writing manifest file '../../build/recorder/recorder.egg-info/SOURCES.txt'
+[2.507s] running build
+[2.507s] running build_py
+[2.507s] running install
+[2.508s] running install_lib
+[2.510s] running install_data
+[2.510s] running install_egg_info
+[2.512s] removing '/home/eirik/ROS_car_project/install/recorder/lib/python3.8/site-packages/recorder-0.0.0-py3.8.egg-info' (and everything under it)
+[2.513s] Copying ../../build/recorder/recorder.egg-info to /home/eirik/ROS_car_project/install/recorder/lib/python3.8/site-packages/recorder-0.0.0-py3.8.egg-info
+[2.513s] running install_scripts
+[2.538s] Installing recorder script to /home/eirik/ROS_car_project/install/recorder/lib/recorder
+[2.539s] writing list of installed files to '/home/eirik/ROS_car_project/build/recorder/install.log'
+[2.577s] Invoked command in '/home/eirik/ROS_car_project/src/recorder' returned '0': PYTHONPATH=/home/eirik/ROS_car_project/install/recorder/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/recorder build --build-base /home/eirik/ROS_car_project/build/recorder/build install --prefix /home/eirik/ROS_car_project/install/recorder --record /home/eirik/ROS_car_project/build/recorder/install.log --single-version-externally-managed
