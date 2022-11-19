@@ -38,7 +38,7 @@ class Move_robot(Node):
         self.framecounter = 0
         self.cam = cv2.VideoCapture(0)
         self.trackbarvals = [30, 300, 0, 480]
-        self.inittrackbars = initializeTrackbars(self.trackbarvals, self.IMAGE_WIDTH, self.IMAGE_HEIGHTMAGE_HEIGHT)
+        self.inittrackbars = initializeTrackbars(self.trackbarvals, self.IMAGE_WIDTH, self.IMAGE_HEIGHT)
 
         
     def move_callback(self):
