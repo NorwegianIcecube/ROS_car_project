@@ -56,8 +56,8 @@ class Move_robot(Node):
         _, img = self.cam.read()  # GET THE IMAGE
         img = cv2.resize(img, (self.IMAGE_WIDTH, self.IMAGE_HEIGHT))  # RESIZE
         
-        hist, turn, warp, self.turn = pipeline(img, self.trackbarvals, self.turn)
-        self.vel_msg.angular.z = turn
+        self.turn, img_stack = pipeline(img, self.trackbarvals, self.turn)
+        self.vel_msg.angular.z = self.turn
         
         #cv2.imshow("video", img)
         #both = cv2.addWeighted(warp, 0.5, hist, 0.5, 0.0)
@@ -74,7 +74,7 @@ class Move_robot(Node):
     
         self.out.write(img_stack)
         self.count+=1
-        if cv2.waitKey(1) & self.count > 70:
+        if cv2.waitKey(1) & self.count > 100:
                 self.finish()
     
     def finish(self):
@@ -86,7 +86,7 @@ class Move_robot(Node):
         rclpy.shutdown()
         cv2.destroyAllWindows()
         self.out.release()
-
+        exit()
         #cv2.destroyAllWindows()
         
         

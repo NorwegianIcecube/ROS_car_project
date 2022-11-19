@@ -5,8 +5,6 @@ from collections import Counter
 IMAGE_WIDTH = 640
 IMAGE_HEIGHT = 480
 
-img_stack = np.zeros((IMAGE_HEIGHT, IMAGE_WIDTH, 3), np.uint8)
-
 def stackImages(scale,imgArray):
     rows = len(imgArray)
     cols = len(imgArray[0])
@@ -150,7 +148,7 @@ def pipeline(img, points, turn):
     
     avg = gray_hist_avg(hist)
     
-    treshold = 5
+    treshold = 0
 
     cv2.line(hist, (avg, hist.shape[0]), (avg, hist.shape[1]), (0, 255, 255), 2)
     cv2.line(hist, (hist.shape[1]//2, 0), (hist.shape[1]//2, hist.shape[0]), (255, 0, 0), 2)
@@ -176,7 +174,7 @@ def pipeline(img, points, turn):
 
     
         
-    return hist, turn, warp_img(img, points, h, w), turn
+    return turn, img_stack
     
 
 # Test the functions if the module is run
