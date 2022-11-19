@@ -1,6 +1,0 @@
-source;share/recorder/hook/pythonpath.ps1
-source;share/recorder/hook/pythonpath.dsv
-source;share/recorder/hook/pythonpath.sh
-source;share/recorder/hook/ament_prefix_path.ps1
-source;share/recorder/hook/ament_prefix_path.dsv
-source;share/recorder/hook/ament_prefix_path.sh

@@ -1,3 +1,0 @@
-[console_scripts]
-recorder = recorder.record:main
-

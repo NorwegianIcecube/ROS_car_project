@@ -13,6 +13,3 @@ test/test_copyright.py
 test/test_flake8.py
 test/test_pep257.py
 turtlebot3_antmobile/__init__.py
-turtlebot3_antmobile/drive.py
-turtlebot3_antmobile/stackimages.py
-turtlebot3_antmobile/utils.py
