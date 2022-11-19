@@ -104,7 +104,7 @@ def gray_hist_avg(hist):
     return avg
 
 
-def pipeline(img, points):
+def pipeline(img, points, turn):
     
     img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     h, w = img_gray.shape
@@ -127,7 +127,6 @@ def pipeline(img, points):
     
     
     mid = hist.shape[1]//2
-    turn = 0.0
     
     if avg < mid - treshold:
         turn += -0.01
@@ -139,7 +138,7 @@ def pipeline(img, points):
         #turn = 0.0
         pass
         
-    return hist, turn, warp_img(img, points, h, w)
+    return hist, turn, warp_img(img, points, h, w), turn
     
 
 # Test the functions if the module is run
