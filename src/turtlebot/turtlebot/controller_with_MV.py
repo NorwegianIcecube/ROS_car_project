@@ -30,6 +30,7 @@ class Move_robot(Node):
         self.vel_msg = Twist()
         self.vel_msg.linear.x = 0.2
         self.vel_msg.angular.z = 0.0
+        self.turn = self.vel_msg.angular.z
         
         #self.r = self.create_rate(30)
         
@@ -51,7 +52,7 @@ class Move_robot(Node):
         _, img = self.cam.read()  # GET THE IMAGE
         img = cv2.resize(img, (self.IMAGE_WIDTH, self.IMAGE_HEIGHT))  # RESIZE
         
-        hist, turn, warp = pipeline(img, self.trackbarvals)
+        hist, turn, warp, self.turn = pipeline(img, self.trackbarvals, self.turn)
         self.vel_msg.angular.z = turn
         
         #cv2.imshow("video", img)
