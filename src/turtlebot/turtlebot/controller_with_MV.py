@@ -54,9 +54,9 @@ class Move_robot(Node):
         hist, turn, warp = pipeline(img)
         self.vel_msg.angular.z = turn
         
-        cv2.imshow("video", img)
+        #cv2.imshow("video", img)
         both = cv2.addWeighted(warp, 0.5, hist, 0.5, 0.0)
-        cv2.imshow("both", both)
+        #cv2.imshow("both", both)
                 
         if cv2.waitKey(1) & 0xFF == ord('q'):  # press q To exit
             self.finish
