@@ -72,9 +72,9 @@ class Move_robot(Node):
         #self.vel_msg.linear.x += 0.02
 
         self.count += 1
-        print(float(self.count)*(100/100), " '%' finished")
+        print(float(self.count)*(100/80), " '%' finished")
         self.out.write(img_stack)
-        if cv2.waitKey(1) and self.count > 100:
+        if cv2.waitKey(1) and self.count > 80:
             self.vel_msg.linear.x = 0.0
             self.vel_msg.angular.z = 0.0
             self.message_publisher.publish(self.vel_msg)
