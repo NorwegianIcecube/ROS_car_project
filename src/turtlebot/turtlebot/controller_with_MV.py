@@ -42,7 +42,7 @@ class Move_robot(Node):
         #self.inittrackbas = initializeTrackbars(self.trackbarvals, self.IMAGE_WIDTH, self.IMAGE_HEIGHT)
 
         self.fourcc = cv2.VideoWriter_fourcc(*'MJPG')
-        self.out = cv2.VideoWriter('testing.avi', self.fourcc, 1//timer_period, (self.IMAGE_WIDTH, self.IMAGE_HEIGHT))
+        self.out = cv2.VideoWriter('testing.avi', self.fourcc, 1//timer_period, ((self.IMAGE_WIDTH*3)//2, (self.IMAGE_HEIGHT*3)//2))
         self.count = 0
 
         
