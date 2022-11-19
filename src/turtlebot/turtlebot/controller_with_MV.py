@@ -74,12 +74,12 @@ class Move_robot(Node):
     
         self.out.write(img_stack)
         self.count+=1
-        if cv2.waitKey(1) & self.count > 100:
+        if cv2.waitKey(1) & self.count > 70:
                 self.finish()
     
     def finish(self):
         self.cam.release()
-        self.vel_msg.linear.x = 0
+        self.vel_msg.linear.x = 0.0
         #cv2.destroyAllWindows()
         
         
