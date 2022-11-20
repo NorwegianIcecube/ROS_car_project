@@ -55,8 +55,9 @@ class Move_robot(Node):
         _, img = self.cam.read()  # GET THE IMAGE
         img = cv2.resize(img, (self.IMAGE_WIDTH, self.IMAGE_HEIGHT))  # RESIZE
         
-        self.turn, img_stack = pipeline(img, self.trackbarvals, self.turn)
+        self.turn, img_stack, speed = pipeline(img, self.trackbarvals, self.turn)
         self.vel_msg.angular.z = self.turn
+        self.vel_msg.linear.x = speed
         
         #cv2.imshow("video", img)
         #both = cv2.addWeighted(warp, 0.5, hist, 0.5, 0.0)
