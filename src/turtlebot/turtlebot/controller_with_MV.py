@@ -42,7 +42,7 @@ class Move_robot(Node):
 
         self.count = 0
         self.fourcc = cv2.VideoWriter_fourcc(*'MJPG')
-        self.out = cv2.VideoWriter('testing.avi', self.fourcc, 1//timer_period, (1152, 576))
+        self.out = cv2.VideoWriter('media/testing.avi', self.fourcc, 1//timer_period, (1152, 576))
 
         
     def move_callback(self):

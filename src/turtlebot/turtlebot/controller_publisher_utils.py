@@ -139,19 +139,19 @@ def pipeline(img, points, turn):
     img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     h, w = img_gray.shape
     img_blur = cv2.blur(img_gray, (3,3))
-    img_canny = cv2.Canny(img_blur, 0, 200, L2gradient=True)
+    img_canny = cv2.Canny(img_blur, 50, 200, L2gradient=True)
    
     #valTrackbars(IMAGE_WIDTH, IMAGE_HEIGHT)
     img_warp = warp_img(img_canny, points, h, w)
     img_fill = img_warp.copy()
     fill_image(img_fill)
     _1, lanePositionHist = getHistogram(img_fill, display_hist=True, minPercentage=0.2, region=6)
-    _2, fullHist = getHistogram(img_fill, display_hist=True, minPercentage=0.9, region=1)
+    _2, fullHist = getHistogram(img_fill, display_hist=True, minPercentage=0.8, region=1)
     
     avg = _1#gray_hist_avg(fullHist)
     mid = _2#gray_hist_avg(lanePositionHist)
     
-    treshold = 10
+    treshold = 15
 
     cv2.line(fullHist, (mid, fullHist.shape[0]), (mid, fullHist.shape[1]), (0, 255, 255), 2)
     cv2.line(fullHist, (avg, 0), (avg, fullHist.shape[0]), (255, 0, 0), 2)
