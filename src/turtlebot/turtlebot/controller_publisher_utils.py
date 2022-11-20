@@ -172,9 +172,9 @@ def pipeline(img, points, turn):
         turn = 0.0
 
     if turn > 0.1:
-        speed = 0.05
+        speed = 0.15
     elif turn < -0.1:
-        speed = 0.05
+        speed = 0.15
     else:
         speed = 0.1
 
