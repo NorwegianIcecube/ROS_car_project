@@ -72,7 +72,7 @@ class Move_robot(Node):
         #self.vel_msg.linear.x += 0.02
 
         self.count += 1
-        instances = 200
+        instances = 400
         print(float(self.count)*(100/instances), " '%' finished")
         self.out.write(img_stack)
         if cv2.waitKey(1) and self.count > instances:
