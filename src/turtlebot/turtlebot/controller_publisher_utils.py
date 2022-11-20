@@ -161,10 +161,10 @@ def pipeline(img, points, turn):
     
     
     
-    if avg < mid - treshold:
+    if avg > mid - treshold:
         turn += 0.01
     
-    elif avg > mid + treshold:
+    elif avg < mid + treshold:
         turn += -0.01
     else:
         turn = 0.0
