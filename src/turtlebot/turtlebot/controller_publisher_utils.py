@@ -138,7 +138,7 @@ def pipeline(img, points, turn):
     
     img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     h, w = img_gray.shape
-    img_blur = cv2.blur(img_gray, (5,5))
+    img_blur = cv2.blur(img_gray, (1,1))
     img_canny = cv2.Canny(img_blur, 0, 200)
    
     #valTrackbars(IMAGE_WIDTH, IMAGE_HEIGHT)
