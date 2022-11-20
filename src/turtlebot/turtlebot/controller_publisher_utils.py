@@ -144,34 +144,33 @@ def pipeline(img, points, turn):
     #valTrackbars(IMAGE_WIDTH, IMAGE_HEIGHT)
     img_warp = warp_img(img_canny, points, h, w)
     img_fill = img_warp.copy()
-    img_fill = fill_image(img_fill)
-    _, hist = getHistogram(img_fill, display_hist=True, minPercentage=0.1, region=5)    
+    fill_image(img_fill)
+    _, lanePositionHist = getHistogram(img_fill, display_hist=True, minPercentage=0.1, region=5)
+    _, fullHist = getHistogram(img_fill, display_hist=True, minPercentage=0.1, region=1)
     
-    avg = gray_hist_avg(hist)
+    avg = gray_hist_avg(fullHist)
+    mid = gray_hist_avg(lanePositionHist)
     
     treshold = 0
 
-    cv2.line(hist, (avg, hist.shape[0]), (avg, hist.shape[1]), (0, 255, 255), 2)
-    cv2.line(hist, (hist.shape[1]//2, 0), (hist.shape[1]//2, hist.shape[0]), (255, 0, 0), 2)
-    cv2.line(hist, (hist.shape[1]//2 + treshold, 0), (hist.shape[1]//2 + treshold, hist.shape[0]), (0, 255, 0), 2)
-    cv2.line(hist, (hist.shape[1]//2 - treshold, 0), (hist.shape[1]//2 - treshold, hist.shape[0]), (0, 255, 0), 2)
+    cv2.line(fullHist, (avg, fullHist.shape[0]), (avg, fullHist.shape[1]), (0, 255, 255), 2)
+    cv2.line(fullHist, (mid, 0), (mid, fullHist.shape[0]), (255, 0, 0), 2)
+    cv2.line(fullHist, (mid + treshold, 0), (mid + treshold, fullHist.shape[0]), (0, 255, 0), 2)
+    cv2.line(fullHist, (mid - treshold, 0), (mid - treshold, fullHist.shape[0]), (0, 255, 0), 2)
     
     
-    mid = hist.shape[1]//2
+    
     
     if avg < mid - treshold:
         turn += 0.01
     
     elif avg > mid + treshold:
         turn += -0.01
-    
     else:
         turn = 0.0
 
-    _, largeHist = getHistogram(img_fill, display_hist=True, minPercentage=0.1, region=1)
-    global img_stack
     img_stack = stackImages(0.6, ([img, img_canny, img_warp],
-                                    [img_fill, hist, largeHist]))
+                                    [img_fill, lanePositionHist, fullHist]))
 
     
         
