@@ -170,9 +170,14 @@ def pipeline(img, points, turn):
         turn = (avg-mid)/1000
     else:
         turn = 0.0
-        speed = 0.1
+
     if turn > 0.1:
         speed = 0.05
+    elif turn < -0.1:
+        speed = 0.05
+    else:
+        speed = 0.1
+
     img_stack = stackImages(0.6, ([img, img_canny, img_warp],
                                     [img_fill, lanePositionHist, fullHist]))
 
