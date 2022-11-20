@@ -171,7 +171,7 @@ def pipeline(img, points, turn):
         turn = 0.0
 
 
-    cv2.line(fullHist, (mid, 0), (mid+int(turn*1000), fullHist.shape[1]), (255, 255, 0), 2)
+    cv2.line(fullHist, (avg, fullHist.shape[0]), (avg+int(turn*1000), fullHist.shape[1]), (255, 255, 0), 2)
 
     speed = 0.1
 

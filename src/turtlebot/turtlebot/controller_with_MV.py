@@ -37,7 +37,7 @@ class Move_robot(Node):
         self.IMAGE_HEIGHT = 480
         self.framecounter = 0
         self.cam = cv2.VideoCapture(0)
-        self.trackbarvals = [[160., 300.], [490., 300.], [0.,480.], [650., 480.]]
+        self.trackbarvals = [[160., 350.], [490., 350.], [0.,480.], [650., 480.]]
         #self.inittrackbas = initializeTrackbars(self.trackbarvals, self.IMAGE_WIDTH, self.IMAGE_HEIGHT)
 
         self.count = 0
