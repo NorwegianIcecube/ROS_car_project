@@ -38,7 +38,7 @@ class VideoRecorder(Node):
         self.frame_width = int(self.cap.get(3))
         self.frame_height = int(self.cap.get(4))
         self.fourcc = cv2.VideoWriter_fourcc(*'MJPG')
-        self.out = cv2.VideoWriter('testing.avi', self.fourcc, 1//timerPeriod, (1152, 576))
+        self.out = cv2.VideoWriter('testing.avi', self.fourcc, 1//timerPeriod, (self.frame_width, self.frame_height))
 
     def fill_image(self, img):
         h, w = img.shape
@@ -137,9 +137,9 @@ class VideoRecorder(Node):
             ish, isw =imgStack.shape[:2]
             print(ish, isw)
 
-            self.out.write(imgStack)
+            self.out.write(frame)
             self.count+=1
-            if cv2.waitKey(1) & self.count > 600:
+            if cv2.waitKey(1) & self.count > 10:
                 exit()
 
 def main():
