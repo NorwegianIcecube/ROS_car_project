@@ -151,7 +151,7 @@ def pipeline(img, points, turn):
     avg = _1#gray_hist_avg(fullHist)
     mid = _2#gray_hist_avg(lanePositionHist)
     
-    treshold = 15
+    treshold = 30
 
     cv2.line(fullHist, (mid, fullHist.shape[0]), (mid, fullHist.shape[1]), (0, 255, 255), 2)
     cv2.line(fullHist, (avg, 0), (avg, fullHist.shape[0]), (255, 0, 0), 2)
@@ -171,12 +171,7 @@ def pipeline(img, points, turn):
     else:
         turn = 0.0
 
-    if turn > 0.1:
-        speed = 0.15
-    elif turn < -0.1:
-        speed = 0.15
-    else:
-        speed = 0.1
+    speed = 0.1
 
     img_stack = stackImages(0.6, ([img, img_canny, img_warp],
                                     [img_fill, lanePositionHist, fullHist]))
