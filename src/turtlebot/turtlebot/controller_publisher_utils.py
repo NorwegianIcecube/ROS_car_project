@@ -179,7 +179,7 @@ def pipeline(img, points, turn):
 
     
         
-    return turn, img_stack
+    return turn, img_stack, speed
     
 
 # Test the functions if the module is run
