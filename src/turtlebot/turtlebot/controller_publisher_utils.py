@@ -1,6 +1,7 @@
 import cv2
 import numpy as np
 from collections import Counter
+import math
 
 IMAGE_WIDTH = 640
 IMAGE_HEIGHT = 480
@@ -151,7 +152,7 @@ def pipeline(img, points, turn):
     avg = _1#gray_hist_avg(fullHist)
     mid = _2#gray_hist_avg(lanePositionHist)
     
-    treshold = 60
+    treshold = 15
 
     cv2.line(fullHist, (mid, fullHist.shape[0]), (mid, fullHist.shape[1]), (0, 255, 255), 2)
     cv2.line(fullHist, (avg, 0), (avg, fullHist.shape[0]), (255, 0, 0), 2)
@@ -161,13 +162,11 @@ def pipeline(img, points, turn):
     
     
     
-    if avg < mid - treshold:
+    if avg < mid - treshold or avg > mid + treshold:
         #turn -= 0.05 #steers right
-        turn = (avg-mid)/1000
-    
-    elif avg > mid + treshold:
-        #turn += 0.05 #steers left
-        turn = (avg-mid)/1000
+        turn = math.sqrt(abs((avg-mid)/2000))
+        if avg < mid:
+            turn = -turn
     else:
         turn = 0.0
 
