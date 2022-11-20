@@ -170,6 +170,9 @@ def pipeline(img, points, turn):
     else:
         turn = 0.0
 
+
+    cv2.line(fullHist, (mid, 0), (mid+int(turn*1000), fullHist.shape[1]), (255, 255, 0), 2)
+
     speed = 0.1
 
     img_stack = stackImages(0.6, ([img, img_canny, img_warp],
