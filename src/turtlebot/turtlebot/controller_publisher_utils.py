@@ -151,7 +151,7 @@ def pipeline(img, points, turn):
     avg = gray_hist_avg(fullHist)
     mid = gray_hist_avg(lanePositionHist)
     
-    treshold = 0
+    treshold = 10
 
     cv2.line(fullHist, (avg, fullHist.shape[0]), (avg, fullHist.shape[1]), (0, 255, 255), 2)
     cv2.line(fullHist, (mid, 0), (mid, fullHist.shape[0]), (255, 0, 0), 2)
