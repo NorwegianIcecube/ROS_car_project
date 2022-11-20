@@ -172,6 +172,8 @@ def pipeline(img, points, turn):
     img_stack = stackImages(0.6, ([img, img_canny, img_warp],
                                     [img_fill, lanePositionHist, fullHist]))
 
+    turn = 0.1
+
     
         
     return turn, img_stack
