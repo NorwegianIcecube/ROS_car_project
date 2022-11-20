@@ -162,10 +162,12 @@ def pipeline(img, points, turn):
     
     
     if avg < mid - treshold:
-        turn -= 0.05 #steers right
+        #turn -= 0.05 #steers right
+        turn = (avg-mid)/1000
     
     elif avg > mid + treshold:
-        turn += 0.05 #steers left
+        #turn += 0.05 #steers left
+        turn = (avg-mid)/1000
     else:
         turn = 0.0
 
