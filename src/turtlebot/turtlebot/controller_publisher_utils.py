@@ -145,7 +145,7 @@ def pipeline(img, points, turn):
     img_warp = warp_img(img_canny, points, h, w)
     img_fill = img_warp.copy()
     fill_image(img_fill)
-    _1, lanePositionHist = getHistogram(img_fill, display_hist=True, minPercentage=0.5, region=6)
+    _1, lanePositionHist = getHistogram(img_fill, display_hist=True, minPercentage=0.2, region=6)
     _2, fullHist = getHistogram(img_fill, display_hist=True, minPercentage=0.9, region=1)
     
     avg = _1#gray_hist_avg(fullHist)
