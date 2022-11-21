@@ -6,6 +6,7 @@ import cv2
 import numpy as np
 #import controller_publisher_utils as utils
 from .controller_publisher_utils import *
+import time
 
 
 
@@ -44,7 +45,13 @@ class Move_robot(Node):
         self.fourcc = cv2.VideoWriter_fourcc(*'MJPG')
         self.out = cv2.VideoWriter('media/testing.avi', self.fourcc, 1//timer_period, (1152, 576))
 
-        
+    
+        self.load_ants_template = cv2.imread('load_ants.jpg')
+        self.load_ants_template = cv2.resize(self.load_ants_template, (200, 200))
+
+        self.deploy_ants_template = cv2.imread('deploy_ants.jpg')
+        self.deploy_ants_template = cv2.resize(self.deploy_ants_template, (200, 200))
+
     def move_callback(self):
         
         self.framecounter += 1
@@ -55,7 +62,7 @@ class Move_robot(Node):
         _, img = self.cam.read()  # GET THE IMAGE
         img = cv2.resize(img, (self.IMAGE_WIDTH, self.IMAGE_HEIGHT))  # RESIZE
         
-        self.turn, img_stack, speed = pipeline(img, self.trackbarvals, self.turn)
+        self.turn, img_stack, speed, stop, pause = pipeline(img, self.trackbarvals, self.turn, self.load_ants_template, self.deploy_ants_template)
         self.vel_msg.angular.z = self.turn
         self.vel_msg.linear.x = speed
         
@@ -72,26 +79,35 @@ class Move_robot(Node):
         self.get_logger().info('linear speed {}, angular speed {}'.format(self.vel_msg.linear.x, self.vel_msg.angular.z))
         #self.vel_msg.linear.x += 0.02
 
-        self.count += 1
-        instances = 200
-        print(float(self.count)*(100/instances), " '%' finished")
+        
         self.out.write(img_stack)
-        if cv2.waitKey(1) and self.count > instances:
+        if stop:
+            self.finish()
+        if pause:
             self.vel_msg.linear.x = 0.0
             self.vel_msg.angular.z = 0.0
             self.message_publisher.publish(self.vel_msg)
-            print("stopped")
-            self.out.release()
-            print("released video")
-            self.cam.release()
-            print("released camera")
-            cv2.destroyAllWindows()
-            self.shutdown_turtlebot()
-            print("shutdown turtlebot")
-            exit()  
+            for i in range(0, 100):
+                time.sleep(0.1)
+            self.vel_msg.linear.x = speed
+            self.vel_msg.angular.z = self.turn
+            self.message_publisher.publish(self.vel_msg)
+
+             
     
     def finish(self):
+        self.vel_msg.linear.x = 0.0
+        self.vel_msg.angular.z = 0.0
+        self.message_publisher.publish(self.vel_msg)
+        print("stopped")
+        self.out.release()
+        print("released video")
         self.cam.release()
+        print("released camera")
+        cv2.destroyAllWindows()
+        self.shutdown_turtlebot()
+        print("shutdown turtlebot")
+        exit() 
         
     
         

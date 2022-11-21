@@ -134,8 +134,53 @@ def gray_hist_avg(hist):
 
     return avg
 
+def threshold_match(img):
+    hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+    lower_red = np.array([166, 60, 70])
+    upper_red = np.array([179, 200, 255])
+    masked_red = cv2.inRange(hsv, lower_red, upper_red)
 
-def pipeline(img, points, turn):
+    # Threshold of blue in HSV space
+    lower_blue = np.array([109, 50, 105])
+    upper_blue = np.array([120, 210, 185])
+    masked_blue = cv2.inRange(hsv, lower_blue, upper_blue)
+
+    nr_red = np.argwhere(masked_red == 255)
+    nr_blue = np.argwhere(masked_blue == 255)
+
+    threshold = 1500
+    print(len(nr_red))
+    if len(nr_red) > threshold:
+        return "red"
+    else:
+        return "blue"
+
+def template_match(_img, template):
+    img = _img.copy()
+    img2 = img[:, :, 2]
+    img2 = img2 - cv2.erode(img2, None)
+
+    template = template[:, :, 2]
+    template = template - cv2.erode(template, None)
+
+    ccnorm = cv2.matchTemplate(img2, template, cv2.TM_CCORR_NORMED)
+
+    ccnorm.max()
+    loc = np.where(ccnorm == ccnorm.max())
+    threshold = 0.4
+    th, tw = template.shape[:2]
+    for pt in zip(*loc[::-1]):
+        if ccnorm[pt[::-1]] > threshold:
+            cropped_img = img.copy()
+            cropped_img = cropped_img[(pt[1]):(pt[1] + th), pt[0]:(pt[0] + tw)]
+
+            command = threshold_match(cropped_img)
+    
+            cv2.rectangle(img, pt, (pt[0] + tw, pt[1] + th), (0, 0, 255), 2)
+    return command
+
+
+def pipeline(img, points, turn, load_ants_template, deploy_ants_template):
     
     img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     h, w = img_gray.shape
@@ -175,13 +220,21 @@ def pipeline(img, points, turn):
 
     speed = 0.1
 
-    img_stack = stackImages(0.6, ([img, img_canny, img_warp],
+    stop = False
+    pause = False
+    img_original = img.copy()
+    command = template_match(img_original, load_ants_template)
+    command = template_match(img_original, deploy_ants_template)
+
+    img_stack = stackImages(0.6, ([img_original, img_canny, img_warp],
                                     [img_fill, lanePositionHist, fullHist]))
 
-
-    
+    if command == "red":
+        stop = True
+    elif command == "blue":
+        pause = True
         
-    return turn, img_stack, speed
+    return turn, img_stack, speed, stop, pause
     
 
 # Test the functions if the module is run

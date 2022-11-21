@@ -25,13 +25,11 @@ def threshold_match(img):
     print(len(nr_red))
     if len(nr_red) > threshold:
         print("DEPLOY ANTS!!")
-        cv2.imshow("red", masked_red)
     else:
         print("LOAD ANTS!!")
-        cv2.imshow("blue", masked_blue)
 
 
-def template_match(_img, template, sign_type):
+def template_match(_img, template):
     img = _img.copy()
     img2 = img[:, :, 2]
     img2 = img2 - cv2.erode(img2, None)
@@ -49,7 +47,6 @@ def template_match(_img, template, sign_type):
         if ccnorm[pt[::-1]] > threshold:
             cropped_img = img.copy()
             cropped_img = cropped_img[(pt[1]):(pt[1] + th), pt[0]:(pt[0] + tw)]
-            cv2.imshow("cropped", cropped_img)
 
             threshold_match(cropped_img)
 
@@ -70,8 +67,8 @@ if __name__ == '__main__':
         _, img_original = cap.read(0)  # GET THE IMAGE
 
         # Apply template Matching
-        bw_res_img1, res_img1 = template_match(img_original, load_ants_template, 'deploy')
-        bw_res_img2, res_img2 = template_match(img_original, deploy_ants_template, 'load')
+        bw_res_img1, res_img1 = template_match(img_original, load_ants_template)
+        bw_res_img2, res_img2 = template_match(img_original, deploy_ants_template)
 
         imgStacked = stackImages(0.5, ([img_original, bw_res_img2], [res_img1, res_img2]))
         cv2.imshow('ImageStack', imgStacked)
