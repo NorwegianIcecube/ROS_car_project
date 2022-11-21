@@ -167,7 +167,7 @@ def template_match(_img, template):
 
     ccnorm.max()
     loc = np.where(ccnorm == ccnorm.max())
-    threshold = 0.4
+    threshold = 0.3
     th, tw = template.shape[:2]
     for pt in zip(*loc[::-1]):
         if ccnorm[pt[::-1]] > threshold:

@@ -8,7 +8,7 @@ import numpy as np
 from .controller_publisher_utils import *
 import time
 
-
+TEMPLATE_SIZE = 150
 
 class Move_robot(Node):
 
@@ -47,10 +47,10 @@ class Move_robot(Node):
 
     
         self.load_ants_template = cv2.imread('/home/ubuntu/ROS_car_project/src/turtlebot/turtlebot/load_ants.jpg')
-        self.load_ants_template = cv2.resize(self.load_ants_template, (200, 200))
+        self.load_ants_template = cv2.resize(self.load_ants_template, (TEMPLATE_SIZE, TEMPLATE_SIZE))
 
         self.deploy_ants_template = cv2.imread('/home/ubuntu/ROS_car_project/src/turtlebot/turtlebot/deploy_ants.jpg')
-        self.deploy_ants_template = cv2.resize(self.deploy_ants_template, (200, 200))
+        self.deploy_ants_template = cv2.resize(self.deploy_ants_template, (TEMPLATE_SIZE, TEMPLATE_SIZE))
 
         self.can_pause = True
 
