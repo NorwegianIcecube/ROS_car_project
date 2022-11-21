@@ -7,6 +7,30 @@ IMAGE_WIDTH = 640
 IMAGE_HEIGHT = 480
 
 
+def threshold_match(img):
+    hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+    lower_red = np.array([166, 60, 70])
+    upper_red = np.array([179, 200, 255])
+    masked_red = cv2.inRange(hsv, lower_red, upper_red)
+
+    # Threshold of blue in HSV space
+    lower_blue = np.array([109, 50, 105])
+    upper_blue = np.array([120, 210, 185])
+    masked_blue = cv2.inRange(hsv, lower_blue, upper_blue)
+
+    nr_red = np.argwhere(masked_red == 255)
+    nr_blue = np.argwhere(masked_blue == 255)
+
+    threshold = 1500
+    print(len(nr_red))
+    if len(nr_red) > threshold:
+        print("DEPLOY ANTS!!")
+        cv2.imshow("red", masked_red)
+    else:
+        print("LOAD ANTS!!")
+        cv2.imshow("blue", masked_blue)
+
+
 def template_match(_img, template, sign_type):
     img = _img.copy()
     img2 = img[:, :, 2]
@@ -23,16 +47,11 @@ def template_match(_img, template, sign_type):
     th, tw = template.shape[:2]
     for pt in zip(*loc[::-1]):
         if ccnorm[pt[::-1]] > threshold:
-            if sign_type == 'deploy':
-                cv2.rectangle(img, pt, (pt[0] + tw, pt[1] + th), (0,255, 255), 2)
-                print('DEPLOYING ANTS!!!')
+            cropped_img = img.copy()
+            cropped_img = cropped_img[(pt[1]):(pt[1] + th), pt[0]:(pt[0] + tw)]
+            cv2.imshow("cropped", cropped_img)
 
-            elif sign_type == 'load':
-                cv2.rectangle(img, pt, (pt[0] + tw, pt[1] + th), (255, 255, 0), 2)
-                print('LOADING ANTS!!!')
-
-            else:
-                pass
+            threshold_match(cropped_img)
 
     return img2, img
 
