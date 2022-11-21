@@ -1,6 +1,7 @@
 import cv2
 import numpy as np
 from collections import Counter
+import math
 
 IMAGE_WIDTH = 640
 IMAGE_HEIGHT = 480
@@ -139,43 +140,48 @@ def pipeline(img, points, turn):
     img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     h, w = img_gray.shape
     img_blur = cv2.blur(img_gray, (3,3))
-    img_canny = cv2.Canny(img_blur, 0, 200)
+    img_canny = cv2.Canny(img_blur, 50, 200, L2gradient=True)
    
     #valTrackbars(IMAGE_WIDTH, IMAGE_HEIGHT)
     img_warp = warp_img(img_canny, points, h, w)
     img_fill = img_warp.copy()
-    img_fill = fill_image(img_fill)
-    _, hist = getHistogram(img_fill, display_hist=True, minPercentage=0.1, region=5)    
+    fill_image(img_fill)
+    _1, lanePositionHist = getHistogram(img_fill, display_hist=True, minPercentage=0.2, region=6)
+    _2, fullHist = getHistogram(img_fill, display_hist=True, minPercentage=0.9, region=1)
     
-    avg = gray_hist_avg(hist)
+    avg = _1#gray_hist_avg(fullHist)
+    mid = _2#gray_hist_avg(lanePositionHist)
     
-    treshold = 0
+    treshold = 15
 
-    cv2.line(hist, (avg, hist.shape[0]), (avg, hist.shape[1]), (0, 255, 255), 2)
-    cv2.line(hist, (hist.shape[1]//2, 0), (hist.shape[1]//2, hist.shape[0]), (255, 0, 0), 2)
-    cv2.line(hist, (hist.shape[1]//2 + treshold, 0), (hist.shape[1]//2 + treshold, hist.shape[0]), (0, 255, 0), 2)
-    cv2.line(hist, (hist.shape[1]//2 - treshold, 0), (hist.shape[1]//2 - treshold, hist.shape[0]), (0, 255, 0), 2)
+    cv2.line(fullHist, (mid, fullHist.shape[0]), (mid, fullHist.shape[1]), (0, 255, 255), 2)
+    cv2.line(fullHist, (avg, 0), (avg, fullHist.shape[0]), (255, 0, 0), 2)
+    cv2.line(fullHist, (avg + treshold, 0), (avg + treshold, fullHist.shape[0]), (0, 255, 0), 2)
+    cv2.line(fullHist, (avg - treshold, 0), (avg - treshold, fullHist.shape[0]), (0, 255, 0), 2)
     
     
-    mid = hist.shape[1]//2
     
-    if avg < mid - treshold:
-        turn += 0.01
     
-    elif avg > mid + treshold:
-        turn += -0.01
-    
+    if avg < mid - treshold or avg > mid + treshold:
+        #turn -= 0.05 #steers right
+        turn = math.sqrt(abs((avg-mid)/2000))
+        if avg < mid:
+            turn = -turn
     else:
         turn = 0.0
 
-    _, largeHist = getHistogram(img_fill, display_hist=True, minPercentage=0.1, region=1)
-    global img_stack
+
+    cv2.line(fullHist, (avg, fullHist.shape[0]), (avg-int(turn*1000), fullHist.shape[1]), (255, 255, 0), 2)
+
+    speed = 0.1
+
     img_stack = stackImages(0.6, ([img, img_canny, img_warp],
-                                    [img_fill, hist, largeHist]))
+                                    [img_fill, lanePositionHist, fullHist]))
+
 
     
         
-    return turn, img_stack
+    return turn, img_stack, speed
     
 
 # Test the functions if the module is run

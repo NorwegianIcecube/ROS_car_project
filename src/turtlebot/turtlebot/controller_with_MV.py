@@ -27,7 +27,7 @@ class Move_robot(Node):
         
         # twist message object
         self.vel_msg = Twist()
-        self.vel_msg.linear.x = 0.05
+        self.vel_msg.linear.x = 0.1
         self.vel_msg.angular.z = 0.0
         self.turn = self.vel_msg.angular.z
         
@@ -37,12 +37,12 @@ class Move_robot(Node):
         self.IMAGE_HEIGHT = 480
         self.framecounter = 0
         self.cam = cv2.VideoCapture(0)
-        self.trackbarvals = [[30., 300.], [610., 300.], [0.,480.], [650., 480.]]
+        self.trackbarvals = [[160., 350.], [490., 350.], [0.,480.], [650., 480.]]
         #self.inittrackbas = initializeTrackbars(self.trackbarvals, self.IMAGE_WIDTH, self.IMAGE_HEIGHT)
 
         self.count = 0
         self.fourcc = cv2.VideoWriter_fourcc(*'MJPG')
-        self.out = cv2.VideoWriter('testing.avi', self.fourcc, 1//timer_period, (1152, 576))
+        self.out = cv2.VideoWriter('media/testing.avi', self.fourcc, 1//timer_period, (1152, 576))
 
         
     def move_callback(self):
@@ -55,8 +55,9 @@ class Move_robot(Node):
         _, img = self.cam.read()  # GET THE IMAGE
         img = cv2.resize(img, (self.IMAGE_WIDTH, self.IMAGE_HEIGHT))  # RESIZE
         
-        self.turn, img_stack = pipeline(img, self.trackbarvals, self.turn)
+        self.turn, img_stack, speed = pipeline(img, self.trackbarvals, self.turn)
         self.vel_msg.angular.z = self.turn
+        self.vel_msg.linear.x = speed
         
         #cv2.imshow("video", img)
         #both = cv2.addWeighted(warp, 0.5, hist, 0.5, 0.0)
@@ -72,9 +73,10 @@ class Move_robot(Node):
         #self.vel_msg.linear.x += 0.02
 
         self.count += 1
-        print(float(self.count)*(100/80), " '%' finished")
+        instances = 200
+        print(float(self.count)*(100/instances), " '%' finished")
         self.out.write(img_stack)
-        if cv2.waitKey(1) and self.count > 120:
+        if cv2.waitKey(1) and self.count > instances:
             self.vel_msg.linear.x = 0.0
             self.vel_msg.angular.z = 0.0
             self.message_publisher.publish(self.vel_msg)
