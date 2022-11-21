@@ -65,9 +65,14 @@ class Move_robot(Node):
         img = cv2.resize(img, (self.IMAGE_WIDTH, self.IMAGE_HEIGHT))  # RESIZE
         
         self.turn, img_stack, speed, stop, pause = pipeline(img, self.trackbarvals, self.turn, self.load_ants_template, self.deploy_ants_template)
-        self.vel_msg.angular.z = self.turn
-        self.vel_msg.linear.x = speed
         
+        #self.vel_msg.angular.z = self.turn
+        #self.vel_msg.linear.x = speed
+        
+        self.vel_msg.angular.z = 0.0
+        self.vel_msg.linear.x = 0.0
+        
+
         #cv2.imshow("video", img)
         #both = cv2.addWeighted(warp, 0.5, hist, 0.5, 0.0)
         #cv2.imshow("both", both)
