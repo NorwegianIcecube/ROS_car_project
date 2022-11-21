@@ -259,11 +259,11 @@ def pipeline(img, points, turn, load_ants_template, deploy_ants_template):
     cmd2, matched_img2 = feature_matching(deploy_ants_template, img, feature_matches)
 
     if cmd:
-        pause = True
+        #pause = True
         img_fill = matched_img
 
     elif cmd2:
-        pause = True
+        #pause = True
         img_fill = matched_img2
 
 
