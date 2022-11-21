@@ -156,7 +156,7 @@ def threshold_match(img):
         return "blue"
 
 def template_match(_img, template):
-    img = _img.copy()
+    img = _img#.copy()
     img2 = img[:, :, 2]
     img2 = img2 - cv2.erode(img2, None)
 
@@ -177,7 +177,7 @@ def template_match(_img, template):
             command = threshold_match(cropped_img)
     
             cv2.rectangle(img, pt, (pt[0] + tw, pt[1] + th), (0, 0, 255), 2)
-            return command, img
+            return command #, img
 
 
 def pipeline(img, points, turn, load_ants_template, deploy_ants_template):
@@ -222,11 +222,11 @@ def pipeline(img, points, turn, load_ants_template, deploy_ants_template):
 
     stop = False
     pause = False
-    img_original = img.copy()
-    command, img_original = template_match(img_original, load_ants_template)
-    command, img_original = template_match(img_original, deploy_ants_template)
+    img_original = img
+    command = template_match(img, load_ants_template)
+    command = template_match(img, deploy_ants_template)
 
-    img_stack = stackImages(0.6, ([img_original, img_canny, img_warp],
+    img_stack = stackImages(0.6, ([img, img_canny, img_warp],
                                     [img_fill, lanePositionHist, fullHist]))
 
     if command == "red":
