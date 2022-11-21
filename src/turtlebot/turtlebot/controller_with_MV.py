@@ -94,7 +94,7 @@ class Move_robot(Node):
             self.vel_msg.linear.x = 0.0
             self.vel_msg.angular.z = 0.0
             self.message_publisher.publish(self.vel_msg)
-            for i in range(0, 100):
+            for i in range(0, 30):
                 self.out.write(img_stack)
                 time.sleep(0.1)
             self.vel_msg.linear.x = speed
