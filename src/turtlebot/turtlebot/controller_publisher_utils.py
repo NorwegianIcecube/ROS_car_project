@@ -250,10 +250,10 @@ def pipeline(img, points, turn, load_ants_template, deploy_ants_template):
     stop = False
     pause = False
     img_original = img
-    command = template_match(img, load_ants_template)
-    command = template_match(img, deploy_ants_template)
+    #command = template_match(img, load_ants_template)
+    #command = template_match(img, deploy_ants_template)
 
-    feature_matches = 10
+    feature_matches = 2
 
     cmd, matched_img = feature_matching(load_ants_template, img, feature_matches)
     cmd2, matched_img2 = feature_matching(deploy_ants_template, img, feature_matches)
@@ -270,10 +270,10 @@ def pipeline(img, points, turn, load_ants_template, deploy_ants_template):
     img_stack = stackImages(0.6, ([img, img_canny, img_warp],
                                     [img_fill, lanePositionHist, fullHist]))
 
-    if command == "red":
-        stop = True
-    elif command == "blue":
-        pause = True
+    #if command == "red":
+    #    stop = True
+    #elif command == "blue":
+    #    pause = True
         
     return turn, img_stack, speed, stop, pause
     
