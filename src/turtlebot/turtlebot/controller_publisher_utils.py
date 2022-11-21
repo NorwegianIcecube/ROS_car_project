@@ -201,6 +201,7 @@ def feature_matching(template, scene, treshold):
                             flags=cv2.DrawMatchesFlags_NOT_DRAW_SINGLE_POINTS)
 
     if len(good) > treshold:
+        print(len(good))
         return True, img3
 
     else:
