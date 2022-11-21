@@ -195,13 +195,15 @@ def feature_matching(template, scene, treshold):
     good = []
     for m,n in matches:
         if m.distance < 0.75*n.distance:
+            
+            print(m.position) 
+            
             good.append([m])
 
     img3 = cv2.drawMatchesKnn(template,kp1,scene,kp2,good,None,
                             flags=cv2.DrawMatchesFlags_NOT_DRAW_SINGLE_POINTS)
 
     if len(good) > treshold:
-        print(good)
         return True, img3
 
     else:
