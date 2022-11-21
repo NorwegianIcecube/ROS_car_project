@@ -207,7 +207,7 @@ def feature_matching(template, scene, treshold):
         return False, None, 0
 
 
-def pipeline(img, points, turn, load_ants_template, deploy_ants_template):
+def pipeline(img, points, turn, load_ants_template, deploy_ants_template, framecounter):
     
     img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     h, w = img_gray.shape
@@ -253,17 +253,18 @@ def pipeline(img, points, turn, load_ants_template, deploy_ants_template):
 
     feature_matches = 35
 
-    cmd, matched_img, n_matches = feature_matching(load_ants_template, img, feature_matches)
-    cmd2, matched_img2, n_matches2 = feature_matching(deploy_ants_template, img, feature_matches)
+    if framecounter % 5 == 0:    
+        cmd, matched_img, n_matches = feature_matching(load_ants_template, img, feature_matches)
+        cmd2, matched_img2, n_matches2 = feature_matching(deploy_ants_template, img, feature_matches)
 
-    if n_matches >= n_matches2 and cmd == True:
-        pause = cmd
-        img_fill = matched_img
+        if n_matches >= n_matches2 and cmd == True:
+            pause = cmd
+            img_fill = matched_img
 
-    elif n_matches <= n_matches2 and cmd2 == True:
-        stop = cmd2
-        img_fill = matched_img2
-    
+        elif n_matches <= n_matches2 and cmd2 == True:
+            stop = cmd2
+            img_fill = matched_img2
+        
 
     img_stack = stackImages(0.6, ([img, img_canny, img_warp],
                                     [img_fill, lanePositionHist, fullHist]))

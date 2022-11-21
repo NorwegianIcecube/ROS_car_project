@@ -64,7 +64,7 @@ class Move_robot(Node):
         _, img = self.cam.read()  # GET THE IMAGE
         img = cv2.resize(img, (self.IMAGE_WIDTH, self.IMAGE_HEIGHT))  # RESIZE
         
-        self.turn, img_stack, speed, stop, pause = pipeline(img, self.trackbarvals, self.turn, self.load_ants_template, self.deploy_ants_template)
+        self.turn, img_stack, speed, stop, pause = pipeline(img, self.trackbarvals, self.turn, self.load_ants_template, self.deploy_ants_template, self.framecounter)
         
         self.vel_msg.angular.z = self.turn
         self.vel_msg.linear.x = speed
