@@ -52,6 +52,8 @@ class Move_robot(Node):
         self.deploy_ants_template = cv2.imread('/home/ubuntu/ROS_car_project/src/turtlebot/turtlebot/deploy_ants.jpg')
         self.deploy_ants_template = cv2.resize(self.deploy_ants_template, (200, 200))
 
+        self.can_pause = True
+
     def move_callback(self):
         
         self.framecounter += 1
@@ -83,7 +85,7 @@ class Move_robot(Node):
         self.out.write(img_stack)
         if stop:
             self.finish()
-        if pause:
+        if pause and self.can_pause:
             self.vel_msg.linear.x = 0.0
             self.vel_msg.angular.z = 0.0
             self.message_publisher.publish(self.vel_msg)
@@ -92,6 +94,7 @@ class Move_robot(Node):
             self.vel_msg.linear.x = speed
             self.vel_msg.angular.z = self.turn
             self.message_publisher.publish(self.vel_msg)
+            self.can_pause = False
 
              
     

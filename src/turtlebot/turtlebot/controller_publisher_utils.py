@@ -177,7 +177,7 @@ def template_match(_img, template):
             command = threshold_match(cropped_img)
     
             cv2.rectangle(img, pt, (pt[0] + tw, pt[1] + th), (0, 0, 255), 2)
-    return command
+            return command
 
 
 def pipeline(img, points, turn, load_ants_template, deploy_ants_template):
