@@ -167,7 +167,7 @@ def template_match(_img, template):
 
     ccnorm.max()
     loc = np.where(ccnorm == ccnorm.max())
-    threshold = 0.38
+    threshold = 0.39
     th, tw = template.shape[:2]
     for pt in zip(*loc[::-1]):
         if ccnorm[pt[::-1]] > threshold:
@@ -177,7 +177,7 @@ def template_match(_img, template):
             command = threshold_match(cropped_img)
     
             cv2.rectangle(img, pt, (pt[0] + tw, pt[1] + th), (0, 0, 255), 2)
-            return command
+            return command, img
 
 
 def pipeline(img, points, turn, load_ants_template, deploy_ants_template):
@@ -223,8 +223,8 @@ def pipeline(img, points, turn, load_ants_template, deploy_ants_template):
     stop = False
     pause = False
     img_original = img.copy()
-    command = template_match(img_original, load_ants_template)
-    command = template_match(img_original, deploy_ants_template)
+    command, img_original = template_match(img_original, load_ants_template)
+    command, img_original = template_match(img_original, deploy_ants_template)
 
     img_stack = stackImages(0.6, ([img_original, img_canny, img_warp],
                                     [img_fill, lanePositionHist, fullHist]))
