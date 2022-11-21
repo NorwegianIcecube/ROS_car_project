@@ -46,10 +46,10 @@ class Move_robot(Node):
         self.out = cv2.VideoWriter('media/testing.avi', self.fourcc, 1//timer_period, (1152, 576))
 
     
-        self.load_ants_template = cv2.imread('./load_ants.jpg')
+        self.load_ants_template = cv2.imread('/home/ubuntu/ROS_car_project/src/turtlebot/turtlebot/load_ants.jpg')
         self.load_ants_template = cv2.resize(self.load_ants_template, (200, 200))
 
-        self.deploy_ants_template = cv2.imread('./deploy_ants.jpg')
+        self.deploy_ants_template = cv2.imread('/home/ubuntu/ROS_car_project/src/turtlebot/turtlebot/deploy_ants.jpg')
         self.deploy_ants_template = cv2.resize(self.deploy_ants_template, (200, 200))
 
     def move_callback(self):
