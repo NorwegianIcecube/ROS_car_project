@@ -180,6 +180,35 @@ def template_match(_img, template):
             return command #, img
 
 
+
+def feature_matching(template, scene, treshold):
+
+    sift = cv2.SIFT_create()
+    
+    kp1, des1 = sift.detectAndCompute(template,None)
+    kp2, des2 = sift.detectAndCompute(scene,None)
+    
+    bf = cv2.BFMatcher()
+    matches = bf.knnMatch(des1,des2,k=2)
+    
+    # david lowe's ratio test
+    good = []
+    for m,n in matches:
+        if m.distance < 0.75*n.distance:
+            good.append([m])
+
+    img3 = cv2.drawMatchesKnn(template,kp1,scene,kp2,good,None,
+                            flags=cv2.DrawMatchesFlags_NOT_DRAW_SINGLE_POINTS)
+
+    if len(good) > treshold:
+        return True, img3
+
+    else:
+        return False, None
+
+
+
+
 def pipeline(img, points, turn, load_ants_template, deploy_ants_template):
     
     img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -205,8 +234,6 @@ def pipeline(img, points, turn, load_ants_template, deploy_ants_template):
     cv2.line(fullHist, (avg - treshold, 0), (avg - treshold, fullHist.shape[0]), (0, 255, 0), 2)
     
     
-    
-    
     if avg < mid - treshold or avg > mid + treshold:
         #turn -= 0.05 #steers right
         turn = math.sqrt(abs((avg-mid)/2000))
@@ -225,6 +252,20 @@ def pipeline(img, points, turn, load_ants_template, deploy_ants_template):
     img_original = img
     command = template_match(img, load_ants_template)
     command = template_match(img, deploy_ants_template)
+
+    feature_matches = 10
+
+    cmd, matched_img = feature_matching(load_ants_template, img, feature_matches)
+    cmd2, matched_img2 = feature_matching(deploy_ants_template, img, feature_matches)
+
+    if cmd:
+        pause = True
+        img_fill = matched_img
+
+    elif cmd2:
+        stop = True
+        img_fill = matched_img2
+
 
     img_stack = stackImages(0.6, ([img, img_canny, img_warp],
                                     [img_fill, lanePositionHist, fullHist]))
