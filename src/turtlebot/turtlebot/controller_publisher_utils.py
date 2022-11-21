@@ -201,13 +201,11 @@ def feature_matching(template, scene, treshold):
                             flags=cv2.DrawMatchesFlags_NOT_DRAW_SINGLE_POINTS)
 
     if len(good) > treshold:
-        print(len(good))
+        print(good)
         return True, img3
 
     else:
         return False, None
-
-
 
 
 def pipeline(img, points, turn, load_ants_template, deploy_ants_template):
@@ -227,7 +225,7 @@ def pipeline(img, points, turn, load_ants_template, deploy_ants_template):
     avg = _1#gray_hist_avg(fullHist)
     mid = _2#gray_hist_avg(lanePositionHist)
     
-    treshold = 15
+    treshold = 35
 
     cv2.line(fullHist, (mid, fullHist.shape[0]), (mid, fullHist.shape[1]), (0, 255, 255), 2)
     cv2.line(fullHist, (avg, 0), (avg, fullHist.shape[0]), (255, 0, 0), 2)
@@ -254,7 +252,7 @@ def pipeline(img, points, turn, load_ants_template, deploy_ants_template):
     #command = template_match(img, load_ants_template)
     #command = template_match(img, deploy_ants_template)
 
-    feature_matches = 2
+    feature_matches = 35
 
     cmd, matched_img = feature_matching(load_ants_template, img, feature_matches)
     cmd2, matched_img2 = feature_matching(deploy_ants_template, img, feature_matches)
