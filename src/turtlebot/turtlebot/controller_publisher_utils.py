@@ -4,6 +4,7 @@ import numpy as np
 from collections import Counter
 import math
 
+
 IMAGE_WIDTH = 640
 IMAGE_HEIGHT = 480
 
@@ -184,10 +185,13 @@ def template_match(_img, template):
 
 def feature_matching(template, scene, treshold):
 
+    h, w, c = scene.shape
+    cropped_img = scene[int(h // 4):int(h // 4 * 3), 0:w]
+
     sift = cv2.SIFT_create()
     
     kp1, des1 = sift.detectAndCompute(template,None)
-    kp2, des2 = sift.detectAndCompute(scene,None)
+    kp2, des2 = sift.detectAndCompute(cropped_img,None)
     
     bf = cv2.BFMatcher()
     matches = bf.knnMatch(des1,des2,k=2)
@@ -198,7 +202,7 @@ def feature_matching(template, scene, treshold):
         if m.distance < 0.75*n.distance:
             good.append([m])
 
-    img3 = cv2.drawMatchesKnn(template,kp1,scene,kp2,good,None,
+    img3 = cv2.drawMatchesKnn(template,kp1,cropped_img,kp2,good,None,
                             flags=cv2.DrawMatchesFlags_NOT_DRAW_SINGLE_POINTS)
 
     if len(good) > treshold:
